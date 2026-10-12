@@ -2,10 +2,16 @@ import SwiftUI
 
 struct PlacesView: View {
     @Bindable var viewModel: PlacesViewModel
+    @AppStorage("catchable.sampleMode") private var sampleMode = false
     @State private var isAddingService = false
     var body: some View {
         NavigationStack {
             Form {
+                Section("Preview") {
+                    Toggle("Use sample data", isOn: $sampleMode)
+                    Text("Shows three example stations in Now without an internet connection. Your saved live services are kept separately.")
+                        .font(.caption).foregroundStyle(.secondary)
+                }
                 Section("Main place") {
                     TextField("Place label", text: $viewModel.place.label)
                     TextField("Home address (optional)", text: $viewModel.place.address)

@@ -40,3 +40,6 @@ Use the system SwiftUI TabView with SF Symbols: `clock.fill` for Now and `mappin
 
 ### API verification status
 The integration compiles and mocked HTTP checks pass. During implementation, v6.vbb.transport.rest requests timed out and the related v6.bvg.transport.rest endpoint returned HTTP 503. A successful live end-to-end response and on-device UI verification remain outstanding. No fallback host is silently used.
+
+## Offline sample preview
+In Places, enable **Use sample data**. Now displays three example stations without API access. Disable it to return to saved live services. Demo selection is explicit; API failures never silently enable it.

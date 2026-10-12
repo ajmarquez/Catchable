@@ -3,7 +3,9 @@ import SwiftUI
 struct NowView: View {
     let places: PlacesViewModel
     let viewModel: NowViewModel
-    private var selected: [SavedService] { places.place.services.filter { $0.isSelected && $0.stopID != nil } }
+    @AppStorage("catchable.sampleMode") private var sampleMode = false
+    private var activePlace: Place { sampleMode ? PlaceStore.sample : places.place }
+    private var selected: [SavedService] { activePlace.services.filter { $0.isSelected && (sampleMode || $0.stopID != nil) } }
     private var stations: [String] {
         selected.reduce(into: []) { if !$0.contains($1.station) { $0.append($1.station) } }
     }
@@ -17,17 +19,17 @@ struct NowView: View {
                         Spacer()
                         Text(context.date, format: .dateTime.hour().minute()).font(.system(size: 23, weight: .semibold)).monospacedDigit()
                     }
-                    Text("Departing from \(places.place.label)").font(.title3).foregroundStyle(.secondary).padding(.bottom, 4)
+                    Text("Departing from \(activePlace.label)").font(.title3).foregroundStyle(.secondary).padding(.bottom, 4)
                     if viewModel.isLoading { ProgressView("Loading departures…").frame(maxWidth: .infinity) }
                     if let error = viewModel.errorMessage { Text(error).foregroundStyle(.red) }
-                    if places.place.services.contains(where: { $0.isSelected && $0.stopID == nil }) {
+                    if !sampleMode && places.place.services.contains(where: { $0.isSelected && $0.stopID == nil }) {
                         Text("Old sample services are not connected. Replace them using Add service in Places.").font(.caption).foregroundStyle(.secondary)
                     }
                     if selected.isEmpty {
-                        ContentUnavailableView("Choose your services", systemImage: "tram", description: Text("Add or enable a service in Places."))
+                        ContentUnavailableView("Choose your services", systemImage: "tram", description: Text("Add a live service or enable Use sample data in Places."))
                     }
                     ForEach(stations, id: \.self) { station in
-                        StationCard(services: selected.filter { $0.station == station }, place: places.place, now: context.date, viewModel: viewModel)
+                        StationCard(services: selected.filter { $0.station == station }, place: activePlace, now: context.date, viewModel: viewModel)
                     }
                     if let snapshot = viewModel.snapshot {
                         VStack(alignment: .leading, spacing: 4) {
@@ -36,7 +38,12 @@ struct NowView: View {
                         }.font(.caption).foregroundStyle(.secondary)
                     }
                 }.padding(16)
-            }.refreshable { await viewModel.refresh(place: places.place) }
-        }.task(id: places.place) { await viewModel.refresh(place: places.place) }
+            }.refreshable { await viewModel.refresh(place: activePlace, sampleMode: sampleMode) }
+        }.task(id: RefreshKey(place: activePlace, sampleMode: sampleMode)) { await viewModel.refresh(place: activePlace, sampleMode: sampleMode) }
     }
+}
+
+private struct RefreshKey: Equatable {
+    let place: Place
+    let sampleMode: Bool
 }

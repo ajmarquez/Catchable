@@ -9,7 +9,7 @@ import Observation
     private let selector = DepartureSelector()
     private var generation = 0
     init(provider: any DepartureProvider) { self.provider = provider }
-    func refresh(place: Place) async {
+    func refresh(place: Place, sampleMode: Bool = false) async {
         generation += 1
         let request = generation
         snapshot = nil
@@ -17,7 +17,8 @@ import Observation
         errorMessage = nil
         defer { if generation == request { isLoading = false } }
         do {
-            let result = try await provider.fetchDepartures(for: place.services.filter(\.isSelected))
+            let source: any DepartureProvider = sampleMode ? SampleDepartureProvider() : provider
+            let result = try await source.fetchDepartures(for: place.services.filter(\.isSelected))
             guard generation == request else { return }
             snapshot = result
         } catch is CancellationError { }

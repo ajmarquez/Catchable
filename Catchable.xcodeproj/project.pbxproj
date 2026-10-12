@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1409C69AF5E6FE1855D796CE /* SampleModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF1164D6E99C7B24766185 /* SampleModeTests.swift */; };
 		1729A9A330E910307D189670 /* PlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A884D6773F3FD9AFDC9523 /* PlacesView.swift */; };
 		18639578F91F6B1CD4D6235B /* DepartureSelectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26C689C7201F26EA68C25B5 /* DepartureSelectorTests.swift */; };
 		19BB44B3D1DE60108A9F79AD /* ServiceSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874829C9270269A9978F11B2 /* ServiceSearchViewModel.swift */; };
@@ -44,6 +45,7 @@
 		2D10706E21DF56D2541E80A8 /* TransitModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitModels.swift; sourceTree = "<group>"; };
 		4004262828F6897B018B537C /* StationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCard.swift; sourceTree = "<group>"; };
 		4CAEDED4BEF82471EC38EB11 /* TransportResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportResponse.swift; sourceTree = "<group>"; };
+		4FFF1164D6E99C7B24766185 /* SampleModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleModeTests.swift; sourceTree = "<group>"; };
 		5297D00AF1BC3370292E548F /* CatchableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchableApp.swift; sourceTree = "<group>"; };
 		54A884D6773F3FD9AFDC9523 /* PlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesView.swift; sourceTree = "<group>"; };
 		58225695727E95849D04CE47 /* ServiceSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSearchView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				C26C689C7201F26EA68C25B5 /* DepartureSelectorTests.swift */,
 				A5F1592E524A1E4B020115BB /* LiveDepartureProviderTests.swift */,
+				4FFF1164D6E99C7B24766185 /* SampleModeTests.swift */,
 			);
 			path = CatchableTests;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			files = (
 				18639578F91F6B1CD4D6235B /* DepartureSelectorTests.swift in Sources */,
 				2706D5831BC238AE221668CC /* LiveDepartureProviderTests.swift in Sources */,
+				1409C69AF5E6FE1855D796CE /* SampleModeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
