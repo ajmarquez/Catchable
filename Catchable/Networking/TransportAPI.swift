@@ -1,7 +1,7 @@
 import Foundation
 
 /// Third-party VBB/HAFAS wrapper; not an official VBB API contract.
-struct TransportAPI {
+struct TransportAPI: TransitAPI {
     var client = APIClient()
     let baseURL = URL(string: "https://v6.vbb.transport.rest")!
 

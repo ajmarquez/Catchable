@@ -16,7 +16,7 @@ struct ServiceOption: Identifiable {
     var options: [ServiceOption] = []
     var isLoading = false
     var errorMessage: String?
-    private let api = TransportAPI()
+    private let api: any TransitAPI = TransitousAPI()
     private var generation = 0
 
     func search() async {

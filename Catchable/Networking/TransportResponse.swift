@@ -22,6 +22,7 @@ struct TransportDeparture: Decodable {
     let plannedWhen: String?
     let cancelled: Bool?
     let delay: Int?
+    var realtime: Bool? = nil
 
     var date: Date? {
         guard let value = when ?? plannedWhen else { return nil }

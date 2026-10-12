@@ -26,7 +26,7 @@ struct PlacesView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             Toggle("Include in Now", isOn: $service.isSelected)
                             Text(service.station).font(.headline)
-                            if service.stopID == nil { Text("Sample service — remove and add a live service.").font(.caption).foregroundStyle(.orange) }
+                            if service.stopID?.hasPrefix("de-VBB_") != true { Text("Reselect this service for Transitous using Add service.").font(.caption).foregroundStyle(.orange) }
                             HStack {
                                 Text(service.line)
                                 Text(service.mode.rawValue).foregroundStyle(.secondary)
