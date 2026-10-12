@@ -12,7 +12,7 @@ xcodebuild -project Catchable.xcodeproj -scheme Catchable -configuration Release
 
 ## First upload
 
-Open the archive in Xcode Organizer and select **Distribute App → TestFlight Internal Only**. Xcode can create the App Store Connect app record with name Catchable, English (United States), and SKU `com.ajmarquez.catchable`.
+Open the archive in Xcode Organizer and select **Distribute App → TestFlight Internal Only**. Xcode can create the App Store Connect app record with name Catchable Berlin, English (United States), and SKU `com.ajmarquez.catchable`.
 
 After the app record exists, command-line upload is available:
 
@@ -24,7 +24,11 @@ xcodebuild -exportArchive -archivePath build/Catchable-0.1.0.xcarchive \
 
 ## Current status
 
-A signed release archive succeeded on 2026-10-12. App Store Connect registration/upload was blocked by Apple's **PLA Update available** response: the account holder must accept the latest Apple Developer Program License Agreement in their developer account before retrying. No build has been uploaded yet.
+Version `0.1.0 (1)` uploaded successfully on 2026-10-12 at 22:40 Europe/Berlin. Xcode confirmed **Upload succeeded**, **EXPORT SUCCEEDED**, and **Uploaded package is processing**.
+
+The App Store Connect record is **Catchable Berlin** (app ID `6822076442`), because the name Catchable was already in use. The installed app name remains Catchable. [TestFlight](https://appstoreconnect.apple.com/apps/6822076442/testflight/ios)
+
+Apple processing and internal tester setup have not yet been verified. No App Store release was submitted.
 
 The encryption declaration is false because the app uses system HTTPS and does not implement non-exempt encryption.
 
