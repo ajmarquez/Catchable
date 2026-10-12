@@ -16,6 +16,7 @@ import SwiftUI
                     .tabItem { Label("Places", systemImage: "mappin.circle.fill") }
                     .tag(1)
             }.tint(TransitTheme.accent).preferredColorScheme(.light)
+                .task { WatchSyncCoordinator.shared.start() }
                 .onOpenURL { url in
                     if url.scheme == "catchable", url.host == "now" { selectedTab = 0 }
                 }

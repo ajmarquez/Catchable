@@ -7,7 +7,7 @@ targets:
   Catchable:
     type: application
     platform: iOS
-    sources: [Catchable, SharedWidget]
+    sources: [Catchable, SharedWidget, WatchConnectivityShared]
     info:
       path: Catchable/Info.plist
       properties:
@@ -22,6 +22,8 @@ targets:
         com.apple.security.application-groups: [group.com.ajmarquez.catchable]
     dependencies:
       - target: CatchableWidgets
+        embed: true
+      - target: CatchableWatch
         embed: true
     settings:
       base:
@@ -41,6 +43,7 @@ targets:
     platform: iOS
     sources:
       - CatchableWidgets
+      - WidgetTimeline
       - SharedWidget
       - Catchable/Models
       - Catchable/Networking
@@ -70,6 +73,84 @@ targets:
         CURRENT_PROJECT_VERSION: "2"
         APPLICATION_EXTENSION_API_ONLY: YES
         SKIP_INSTALL: YES
+  CatchableWatch:
+    type: application
+    platform: watchOS
+    deploymentTarget: "10.0"
+    sources:
+      - CatchableWatch
+      - WatchConnectivityShared
+      - SharedWidget
+      - Catchable/Models
+      - Catchable/Networking
+      - Catchable/Services
+      - Catchable/Shared/Theme
+    dependencies:
+      - target: CatchableWatchWidgets
+        embed: true
+    info:
+      path: CatchableWatch/Info.plist
+      properties:
+        CFBundleDisplayName: Catchable
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleURLTypes:
+          - CFBundleURLName: com.ajmarquez.catchable.watchkitapp
+            CFBundleURLSchemes: [catchable]
+        WKApplication: true
+        WKCompanionAppBundleIdentifier: com.ajmarquez.catchable
+        WKRunsIndependentlyOfCompanionApp: true
+        ITSAppUsesNonExemptEncryption: false
+    entitlements:
+      path: CatchableWatch/CatchableWatch.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.ajmarquez.catchable]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ajmarquez.catchable.watchkitapp
+        DEVELOPMENT_TEAM: A98K3QG549
+        CODE_SIGN_STYLE: Automatic
+        SWIFT_VERSION: "5.0"
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "2"
+        TARGETED_DEVICE_FAMILY: "4"
+        SKIP_INSTALL: YES
+  CatchableWatchWidgets:
+    type: app-extension
+    platform: watchOS
+    deploymentTarget: "10.0"
+    sources:
+      - CatchableWatchWidgets
+      - WidgetTimeline
+      - SharedWidget
+      - Catchable/Models
+      - Catchable/Networking
+      - Catchable/Services
+      - Catchable/Persistence
+      - Catchable/Shared/Theme
+    info:
+      path: CatchableWatchWidgets/Info.plist
+      properties:
+        CFBundleDisplayName: Catchable
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: CatchableWatchWidgets/CatchableWatchWidgets.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.ajmarquez.catchable]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ajmarquez.catchable.watchkitapp.widgets
+        DEVELOPMENT_TEAM: A98K3QG549
+        CODE_SIGN_STYLE: Automatic
+        SWIFT_VERSION: "5.0"
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "2"
+        TARGETED_DEVICE_FAMILY: "4"
+        APPLICATION_EXTENSION_API_ONLY: YES
+        SKIP_INSTALL: YES
   CatchableTests:
     type: bundle.unit-test
     platform: iOS
@@ -86,3 +167,7 @@ schemes:
         Catchable: all
     test:
       targets: [CatchableTests]
+  CatchableWatch:
+    build:
+      targets:
+        CatchableWatch: all

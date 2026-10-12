@@ -23,6 +23,7 @@ import Observation
             snapshot = result
             if !sampleMode {
                 try? WidgetDataStore().saveSnapshot(result, for: place)
+                WatchSyncCoordinator.shared.publishCurrentState()
             }
         } catch is CancellationError { }
         catch { if generation == request { errorMessage = "Departures could not be loaded. Pull down to retry." } }

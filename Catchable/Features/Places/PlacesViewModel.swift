@@ -7,7 +7,11 @@ import Observation
     private let store: PlaceStore
     init(store: PlaceStore) { self.store = store; place = store.load() }
     func save() {
-        do { try store.save(place); saveError = nil }
+        do {
+            try store.save(place)
+            saveError = nil
+            WatchSyncCoordinator.shared.publishCurrentState()
+        }
         catch { saveError = "Could not save your place. Please try again." }
     }
 }

@@ -59,3 +59,11 @@ The original concept sheet remains in `Design/widget-concepts.png`; implemented 
 
 ## License
 MIT for the code. Transit data, OpenStreetMap data, and design-reference assets retain their applicable source terms; the source-code license does not grant rights to third-party data or trademarks.
+
+
+## Apple Watch
+The `feature/watch-widgets` branch adds a watchOS 10+ companion app and WidgetKit extension. Rectangular accessories support the Smart Stack and compatible watch faces; circular and inline complications show the next departure. Widgets use the first selected service in the saved place, with the same walking time, buffer, cancellation and stale-data rules as iPhone. They omit the current-time clock and respect watch-face accent rendering.
+
+Launch Catchable on both devices after installing. Save your live services on iPhone; WatchConnectivity transfers the latest place and optional live departure cache to the paired Watch. App Group containers are local to each device, so they do not provide cross-device sync. The Watch can fetch Transitous departures directly once it has received the configuration. Sample mode is intentionally local to iPhone; widget gallery examples are labelled samples. Widgets need refreshing after 15 minutes to keep displaying departure numbers.
+
+`WatchConnectivityShared` owns the versioned sync envelope and session delegate; `CatchableWatch` owns Watch views and view model; `CatchableWatchWidgets` owns accessory rendering. `WidgetTimeline` is shared by both platforms. The iPhone app embeds the Watch app, which embeds its WidgetKit extension. Choose the CatchableWatch scheme to run on a Watch simulator. Actual background pairing and WatchConnectivity delivery must be verified with a physical paired iPhone/Watch before release. This branch has not been uploaded to TestFlight.
