@@ -57,9 +57,11 @@ struct WatchWidgetView: View {
                 if departures.isEmpty {
                     Text(status).font(.caption)
                 } else {
-                    HStack(alignment: .firstTextBaseline, spacing: 10) {
+                    HStack(alignment: .firstTextBaseline, spacing: 6) {
                         ForEach(departures) { departure in
                             Text("\(minutes(departure))").font(.system(size: 24, weight: .bold)).monospacedDigit()
+                                .lineLimit(1).minimumScaleFactor(0.65)
+                                .accessibilityLabel("\(minutes(departure)) minutes")
                         }
                         Text("min").font(.caption2).foregroundStyle(.secondary)
                     }
