@@ -16,25 +16,28 @@ struct ServiceOption: Identifiable {
     var options: [ServiceOption] = []
     var isLoading = false
     var errorMessage: String?
-    private let api: any TransitAPI = TransitousAPI()
+    private let api: any TransitAPI
+    init(api: any TransitAPI = TransitousAPI()) { self.api = api }
     private var generation = 0
 
     func search() async {
         generation += 1
         let request = generation
         let text = query.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard text.count >= 2 else { stops = []; isLoading = false; return }
-        isLoading = true
         selectedStop = nil
         options = []
+        stops = []
         errorMessage = nil
+        guard text.count >= 3, !Task.isCancelled else { isLoading = false; return }
+        isLoading = true
         defer { if generation == request { isLoading = false } }
         do {
             let result = try await api.searchStops(text)
-            guard request == generation else { return }
+            guard request == generation, !Task.isCancelled else { return }
             stops = result
+        } catch is CancellationError {
         } catch {
-            if request == generation { errorMessage = "Stop search failed. Check your connection and try again." }
+            if request == generation && !Task.isCancelled { errorMessage = "Stop search failed. Check your connection and try again." }
         }
     }
 
@@ -48,7 +51,7 @@ struct ServiceOption: Identifiable {
         defer { if generation == request { isLoading = false } }
         do {
             let board = try await api.board(stopID: stop.id)
-            guard request == generation else { return }
+            guard request == generation, !Task.isCancelled else { return }
             var seen = Set<String>()
             options = board.departures.compactMap { item in
                 guard let line = item.line?.name, let destination = item.direction,

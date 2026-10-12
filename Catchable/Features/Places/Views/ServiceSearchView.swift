@@ -10,9 +10,12 @@ struct ServiceSearchView: View {
             List {
                 Section {
                     TextField("Station or stop name", text: $viewModel.query)
-                        .submitLabel(.search).onSubmit { Task { await viewModel.search() } }
-                    Button("Search stops") { Task { await viewModel.search() } }
-                        .disabled(viewModel.isLoading || viewModel.query.trimmingCharacters(in: .whitespaces).count < 2)
+                        .submitLabel(.search)
+                        .autocorrectionDisabled()
+                    if viewModel.query.trimmingCharacters(in: .whitespacesAndNewlines).count < 3 {
+                        Text("Type at least 3 characters to find a station.")
+                            .font(.caption).foregroundStyle(.secondary)
+                    }
                 }
                 if viewModel.isLoading { ProgressView("Loading…") }
                 if let error = viewModel.errorMessage { Text(error).foregroundStyle(.red) }
@@ -44,6 +47,7 @@ struct ServiceSearchView: View {
                     }
                 }
             }.navigationTitle("Add service")
+                .task(id: viewModel.query) { await viewModel.search() }
                 .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Done") { dismiss() } } }
         }
     }
