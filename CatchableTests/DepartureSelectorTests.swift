@@ -17,7 +17,7 @@ final class DepartureSelectorTests: XCTestCase {
         let defaults = UserDefaults(suiteName: suite)!
         defer { defaults.removePersistentDomain(forName: suite) }
         let store = PlaceStore(defaults: defaults)
-        var place = store.load()
+        var place = PlaceStore.sample
         place.label = "My Home"
         place.services[0].isSelected = false
         try store.save(place)

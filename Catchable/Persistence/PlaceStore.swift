@@ -7,7 +7,7 @@ struct PlaceStore {
 
     func load() -> Place {
         guard let data = defaults.data(forKey: key), let place = try? JSONDecoder().decode(Place.self, from: data)
-        else { return Self.sample }
+        else { return Place(label: "Home", address: "", bufferMinutes: 1, services: []) }
         return place
     }
     func save(_ place: Place) throws {

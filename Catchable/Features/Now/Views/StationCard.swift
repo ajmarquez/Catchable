@@ -33,7 +33,10 @@ struct StationCard: View {
                             DepartureColumns(departures: departures, now: now)
                         }
                     }
-                    if departures.isEmpty { Text("No catchable departures").font(.caption).foregroundStyle(.secondary) }
+                    if !departures.isEmpty && departures.contains(where: { !$0.isRealtime }) {
+                        Text("Includes scheduled times").font(.caption2).foregroundStyle(.secondary)
+                    }
+                    if departures.isEmpty { Text("No catchable departures in the next 2 hours").font(.caption).foregroundStyle(.secondary) }
                 }.padding(12)
                 if service.id != services.last?.id { Divider().padding(.horizontal, 12) }
             }

@@ -13,6 +13,8 @@ struct SavedService: Identifiable, Codable, Equatable {
     var mode: TransportMode
     var walkingMinutes: Int
     var isSelected = true
+    var stopID: String? = nil
+    var providerLineID: String? = nil
 }
 
 struct Place: Codable, Equatable {
@@ -27,6 +29,7 @@ struct Departure: Identifiable, Equatable {
     var serviceID: String
     var date: Date
     var isCancelled = false
+    var isRealtime = false
 }
 
 struct DepartureSnapshot {

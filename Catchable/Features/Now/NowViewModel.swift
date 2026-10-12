@@ -12,6 +12,7 @@ import Observation
     func refresh(place: Place) async {
         generation += 1
         let request = generation
+        snapshot = nil
         isLoading = true
         errorMessage = nil
         defer { if generation == request { isLoading = false } }

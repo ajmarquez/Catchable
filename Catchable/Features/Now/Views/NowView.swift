@@ -3,7 +3,7 @@ import SwiftUI
 struct NowView: View {
     let places: PlacesViewModel
     let viewModel: NowViewModel
-    private var selected: [SavedService] { places.place.services.filter(\.isSelected) }
+    private var selected: [SavedService] { places.place.services.filter { $0.isSelected && $0.stopID != nil } }
     private var stations: [String] {
         selected.reduce(into: []) { if !$0.contains($1.station) { $0.append($1.station) } }
     }
@@ -20,6 +20,9 @@ struct NowView: View {
                     Text("Departing from \(places.place.label)").font(.title3).foregroundStyle(.secondary).padding(.bottom, 4)
                     if viewModel.isLoading { ProgressView("Loading departures…").frame(maxWidth: .infinity) }
                     if let error = viewModel.errorMessage { Text(error).foregroundStyle(.red) }
+                    if places.place.services.contains(where: { $0.isSelected && $0.stopID == nil }) {
+                        Text("Old sample services are not connected. Replace them using Add service in Places.").font(.caption).foregroundStyle(.secondary)
+                    }
                     if selected.isEmpty {
                         ContentUnavailableView("Choose your services", systemImage: "tram", description: Text("Add or enable a service in Places."))
                     }
@@ -28,7 +31,7 @@ struct NowView: View {
                     }
                     if let snapshot = viewModel.snapshot {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(snapshot.isSample ? "Sample departures · Not live transport data" : "Live departures")
+                            Text(snapshot.isSample ? "Sample departures · Not live transport data" : "VBB via transport.rest · Live where available")
                             Text("Updated \(snapshot.fetchedAt.formatted(date: .omitted, time: .shortened))")
                         }.font(.caption).foregroundStyle(.secondary)
                     }
