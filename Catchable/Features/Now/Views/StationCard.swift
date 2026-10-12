@@ -21,17 +21,16 @@ struct StationCard: View {
             ForEach(services) { service in
                 let departures = viewModel.departures(for: service, place: place, now: now)
                 VStack(alignment: .leading, spacing: 8) {
-                    ViewThatFits(in: .horizontal) {
+                    VStack(alignment: .leading, spacing: 12) {
                         HStack(spacing: 10) {
                             routeBadge(service)
-                            Text(service.destination).font(.system(size: 14, weight: .semibold))
-                            Spacer(minLength: 4)
-                            DepartureColumns(departures: departures, now: now).frame(width: 135)
+                            Text(service.destination)
+                                .font(.headline)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        VStack(alignment: .leading, spacing: 12) {
-                            HStack { routeBadge(service); Text(service.destination).font(.headline) }
-                            DepartureColumns(departures: departures, now: now)
-                        }
+                        DepartureColumns(departures: departures, now: now)
+                            .frame(maxWidth: .infinity)
                     }
                     if !departures.isEmpty && departures.contains(where: { !$0.isRealtime }) {
                         Text("Includes scheduled times").font(.caption2).foregroundStyle(.secondary)
