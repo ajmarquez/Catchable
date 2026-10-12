@@ -21,6 +21,9 @@ import Observation
             let result = try await source.fetchDepartures(for: place.services.filter(\.isSelected))
             guard generation == request else { return }
             snapshot = result
+            if !sampleMode {
+                try? WidgetDataStore().saveSnapshot(result, for: place)
+            }
         } catch is CancellationError { }
         catch { if generation == request { errorMessage = "Departures could not be loaded. Pull down to retry." } }
     }

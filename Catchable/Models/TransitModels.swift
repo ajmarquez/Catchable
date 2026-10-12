@@ -24,7 +24,7 @@ struct Place: Codable, Equatable {
     var services: [SavedService]
 }
 
-struct Departure: Identifiable, Equatable {
+struct Departure: Identifiable, Codable, Equatable {
     var id: String
     var serviceID: String
     var date: Date
@@ -32,7 +32,7 @@ struct Departure: Identifiable, Equatable {
     var isRealtime = false
 }
 
-struct DepartureSnapshot {
+struct DepartureSnapshot: Codable {
     var departures: [Departure]
     var fetchedAt: Date
     var isSample: Bool

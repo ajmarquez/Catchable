@@ -46,8 +46,16 @@ Transitous successfully returned stop search and M10 departures for Bersarinplat
 ## Offline sample preview
 In Places, enable **Use sample data**. Now displays three example stations without API access. Disable it to return to saved live services. Demo selection is explicit; API failures never silently enable it.
 
-## Widget concepts
-Three Vignelli-inspired medium widget directions are in `Design/widget-concepts.png`: route badges, a compact timetable without circular logos, and next-departure panels. These are concept graphics with sample times, not an implemented WidgetKit extension.
+## Home Screen widgets
+`CatchableWidgets` contains three native WidgetKit designs: Route badges, Compact timetable (no circular logos), and Next departure. Each supports small, medium, and large Home Screen sizes. There is no current-time clock. Add one from the Home Screen widget gallery after launching the app and saving services in Places; widgets use that saved place, walking times, and buffer. Tap a widget to open Catchable.
+
+`SharedWidget` stores the saved place and a matching departure cache in the App Group `group.com.ajmarquez.catchable`. Existing app-only preferences migrate when the app opens. Live widgets fetch through the same Transitous provider and apply the same departure selector as Now. Gallery previews use clearly labelled sample data. Widgets never silently substitute sample departures after a network error.
+
+Minute timeline entries keep catchability filtering and countdown values moving between network refreshes. Refreshes request approximately 15-minute intervals; iOS controls actual scheduling. After 15 minutes, stale departures are hidden and the widget asks you to open Catchable. These widgets are glanceable departure boards, not guaranteed continuous realtime monitoring.
+
+For physical devices, automatic signing must provision the App Group for both the app and `com.ajmarquez.catchable.widgets` extension. The extension is embedded through `project.yml`; regenerate with `xcodegen generate`. This branch does not replace the previously uploaded TestFlight build until a new archive is uploaded.
+
+The original concept sheet remains in `Design/widget-concepts.png`; implemented widgets adapt the designs to native sizes and omit its clock.
 
 ## License
 MIT for the code. Transit data, OpenStreetMap data, and design-reference assets retain their applicable source terms; the source-code license does not grant rights to third-party data or trademarks.

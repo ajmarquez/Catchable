@@ -7,7 +7,22 @@ targets:
   Catchable:
     type: application
     platform: iOS
-    sources: [Catchable]
+    sources: [Catchable, SharedWidget]
+    info:
+      path: Catchable/Info.plist
+      properties:
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleURLTypes:
+          - CFBundleURLName: com.ajmarquez.catchable
+            CFBundleURLSchemes: [catchable]
+    entitlements:
+      path: Catchable/Catchable.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.ajmarquez.catchable]
+    dependencies:
+      - target: CatchableWidgets
+        embed: true
     settings:
       base:
         GENERATE_INFOPLIST_FILE: YES
@@ -21,6 +36,40 @@ targets:
         MARKETING_VERSION: "0.1.0"
         CURRENT_PROJECT_VERSION: "1"
         INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
+  CatchableWidgets:
+    type: app-extension
+    platform: iOS
+    sources:
+      - CatchableWidgets
+      - SharedWidget
+      - Catchable/Models
+      - Catchable/Networking
+      - Catchable/Services
+      - Catchable/Persistence
+      - Catchable/Shared/Theme
+    info:
+      path: CatchableWidgets/Info.plist
+      properties:
+        CFBundleDisplayName: Catchable
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: CatchableWidgets/CatchableWidgets.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.ajmarquez.catchable]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ajmarquez.catchable.widgets
+        DEVELOPMENT_TEAM: A98K3QG549
+        CODE_SIGN_STYLE: Automatic
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1"
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        APPLICATION_EXTENSION_API_ONLY: YES
+        SKIP_INSTALL: YES
   CatchableTests:
     type: bundle.unit-test
     platform: iOS
