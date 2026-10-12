@@ -23,6 +23,7 @@
 		6818B94895257F5BD999E82D /* DepartureProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5725C3DC8D09C24AA9ABB6 /* DepartureProvider.swift */; };
 		7E31A056D8A53A243B4AA733 /* StationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004262828F6897B018B537C /* StationCard.swift */; };
 		913989F256E4DD8E9BC99C7D /* LiveDepartureProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FE3B424CFEC3C52B410899 /* LiveDepartureProvider.swift */; };
+		A6835A12F2068FCB5B550826 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0EB8CFC81E3A7056BB38478 /* Assets.xcassets */; };
 		AB98A68B6DEBA37A3F48391A /* TransitModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D10706E21DF56D2541E80A8 /* TransitModels.swift */; };
 		AD9A9F8CAD8FC2EEEE7A422B /* TransitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1CA8FCD128D43DC8D073B /* TransitAPI.swift */; };
 		B25306A16BDC103D435664A5 /* TransitousResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555B1BFE197AC9B0F93FEAA1 /* TransitousResponseTests.swift */; };
@@ -64,6 +65,7 @@
 		9F812E809AD3755A95D09417 /* TransportAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportAPI.swift; sourceTree = "<group>"; };
 		A271484F8E4D4763D30C9C89 /* NowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowView.swift; sourceTree = "<group>"; };
 		A5F1592E524A1E4B020115BB /* LiveDepartureProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDepartureProviderTests.swift; sourceTree = "<group>"; };
+		B0EB8CFC81E3A7056BB38478 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7FE3B424CFEC3C52B410899 /* LiveDepartureProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDepartureProvider.swift; sourceTree = "<group>"; };
 		BE5725C3DC8D09C24AA9ABB6 /* DepartureProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureProvider.swift; sourceTree = "<group>"; };
 		C26C689C7201F26EA68C25B5 /* DepartureSelectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureSelectorTests.swift; sourceTree = "<group>"; };
@@ -93,6 +95,14 @@
 				58225695727E95849D04CE47 /* ServiceSearchView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		116F419AF1E980E5336836F6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B0EB8CFC81E3A7056BB38478 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		39CB3D3B8B21CBCE9F00CEBB /* Services */ = {
@@ -162,6 +172,7 @@
 				6D0F7F6266506562E29ACB50 /* Models */,
 				464630E422561CF63D919FFF /* Networking */,
 				747B7E0ABC22D5089E34BD6D /* Persistence */,
+				116F419AF1E980E5336836F6 /* Resources */,
 				39CB3D3B8B21CBCE9F00CEBB /* Services */,
 				529585AC4ACC5221D7B8278A /* Shared */,
 			);
@@ -262,6 +273,7 @@
 			buildConfigurationList = F32A7E3565E34FE88E15FFF6 /* Build configuration list for PBXNativeTarget "Catchable" */;
 			buildPhases = (
 				F4CAB9514FC73D2F2024B64A /* Sources */,
+				5175A4BC4F6C153B4E9F377C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -283,6 +295,10 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					A4D055CA70137887AC51BCD5 = {
+						DevelopmentTeam = A98K3QG549;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = D3E3929E4005F021A9FDB75B /* Build configuration list for PBXProject "Catchable" */;
@@ -304,6 +320,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5175A4BC4F6C153B4E9F377C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6835A12F2068FCB5B550826 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C9787A484B6998A7189BDB1A /* Sources */ = {
@@ -497,14 +524,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A98K3QG549;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.catchable.app;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ajmarquez.catchable;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -516,14 +548,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A98K3QG549;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.catchable.app;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ajmarquez.catchable;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

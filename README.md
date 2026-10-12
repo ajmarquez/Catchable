@@ -27,7 +27,7 @@ In Places, disable Use sample data, tap Add service, search a VBB stop, select a
 
 One request per selected stop fetches a 120-minute departure window. The adapter maps Transitous responses into shared transport types. Filtering retains the selected route, transport mode and headsign, removes cancellations and unreachable departures, and returns three times. Realtime flags come from the provider; scheduled fallback is labeled. Home address is never sent; stop searches and saved stop IDs are sent.
 
-Transitous prototype testing is permitted before source publication. Continued hosted use requires an open-source, noncommercial project: https://transitous.org/api/ . No decision to publish or license this repository has been made. Requests include `Catchable/0.1` with the owner's website as contact. Visible Transitous data-source and OpenStreetMap attribution links are included in Now. Before public distribution, review individual data-source attribution terms and confirm the contact URL.
+Transitous prototype testing is permitted before source publication. Continued hosted use requires an open-source, noncommercial project: https://transitous.org/api/ . The source is published under the MIT license. Transitous hosted access is limited to noncommercial use, independently of the code license. Requests include `Catchable/0.1` with the owner's website as contact. Visible Transitous data-source and OpenStreetMap attribution links are included in Now. Before public distribution, review individual data-source attribution terms and confirm the contact URL.
 
 Walking times remain manual. No automatic home-exit monitoring yet.
 
@@ -45,3 +45,9 @@ Transitous successfully returned stop search and M10 departures for Bersarinplat
 
 ## Offline sample preview
 In Places, enable **Use sample data**. Now displays three example stations without API access. Disable it to return to saved live services. Demo selection is explicit; API failures never silently enable it.
+
+## Widget concepts
+Three Vignelli-inspired medium widget directions are in `Design/widget-concepts.png`: route badges, a compact timetable without circular logos, and next-departure panels. These are concept graphics with sample times, not an implemented WidgetKit extension.
+
+## License
+MIT for the code. Transit data, OpenStreetMap data, and design-reference assets retain their applicable source terms; the source-code license does not grant rights to third-party data or trademarks.

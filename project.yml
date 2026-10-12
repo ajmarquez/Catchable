@@ -15,7 +15,12 @@ targets:
         INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
         SWIFT_VERSION: "5.0"
         TARGETED_DEVICE_FAMILY: "1"
-        PRODUCT_BUNDLE_IDENTIFIER: com.catchable.app
+        PRODUCT_BUNDLE_IDENTIFIER: com.ajmarquez.catchable
+        DEVELOPMENT_TEAM: A98K3QG549
+        CODE_SIGN_STYLE: Automatic
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
   CatchableTests:
     type: bundle.unit-test
     platform: iOS
