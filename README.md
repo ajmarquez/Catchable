@@ -53,7 +53,7 @@ In Places, enable **Use sample data**. Now displays three example stations witho
 
 Minute timeline entries keep catchability filtering and countdown values moving between network refreshes. Refreshes request approximately 15-minute intervals; iOS controls actual scheduling. After 15 minutes, stale departures are hidden and the widget asks you to open Catchable. These widgets are glanceable departure boards, not guaranteed continuous realtime monitoring.
 
-For physical devices, automatic signing must provision the App Group for both the app and `com.ajmarquez.catchable.widgets` extension. The extension is embedded through `project.yml`; regenerate with `xcodegen generate`. This branch does not replace the previously uploaded TestFlight build until a new archive is uploaded.
+For physical devices, automatic signing must provision the App Group for both the app and `com.ajmarquez.catchable.widgets` extension. The extension is embedded through `project.yml`; regenerate with `xcodegen generate`. Version 0.1.0 (2), including widgets and the approved app icon, is available for internal TestFlight testing.
 
 The original concept sheet remains in `Design/widget-concepts.png`; implemented widgets adapt the designs to native sizes and omit its clock.
 
