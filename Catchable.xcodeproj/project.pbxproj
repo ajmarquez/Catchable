@@ -654,7 +654,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = CatchableWidgets/CatchableWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = A98K3QG549;
 				INFOPLIST_FILE = CatchableWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -677,7 +677,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = CatchableWidgets/CatchableWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = A98K3QG549;
 				INFOPLIST_FILE = CatchableWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -718,7 +718,7 @@
 				CODE_SIGN_ENTITLEMENTS = Catchable/Catchable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = A98K3QG549;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Catchable/Info.plist;
@@ -744,7 +744,7 @@
 				CODE_SIGN_ENTITLEMENTS = Catchable/Catchable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = A98K3QG549;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Catchable/Info.plist;
