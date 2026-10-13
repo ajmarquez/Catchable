@@ -87,3 +87,7 @@ Addresses and route endpoints are sent to Apple Maps for address search and walk
 
 ### Locations validation
 30 tests pass, including location migration, per-location deletion, delayed route responses after origin edits/deletion, exact station-coordinate resolution, cross-provider station identity, and failed/pending walking routes. The signed archive (including Watch and widgets) builds without warnings. Live MapKit address search and pedestrian routing returned a 7-minute route from Frankfurter Allee 1 to Bersarinplatz. A simulator screenshot confirms the three native tabs; interactive location/station setup and swipe gestures still need checking because the Mac was locked during verification. This branch has not been merged or uploaded.
+
+
+## Merged regression baseline
+Watch support, VBB-first API fallback, and multiple locations with walking routes are merged into main. All 47 automated tests and the signed archive passed before merging. See [TESTING.md](TESTING.md) for coverage and remaining manual checks. These changes have not yet been uploaded to TestFlight.

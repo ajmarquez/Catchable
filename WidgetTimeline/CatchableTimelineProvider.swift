@@ -47,13 +47,8 @@ struct CatchableTimelineProvider: TimelineProvider {
                 } catch { message = "Unable to refresh · Open Catchable" }
             } else { message = "Choose stations in Catchable" }
             let now = Date()
-            let entries = (0...30).map { minute -> WidgetDepartureEntry in
-                let date = now.addingTimeInterval(Double(minute) * 60)
-                let fresh = snapshot.flatMap {
-                    date.timeIntervalSince($0.fetchedAt) < WidgetDataStore.maximumAge ? $0 : nil
-                }
-                return WidgetDepartureEntry(date: date, place: place, snapshot: fresh,
-                    message: fresh == nil ? (message ?? "Open Catchable to refresh") : message)
+            let entries = WidgetTimelinePlanner().frames(snapshot: snapshot, message: message, now: now).map { frame in
+                WidgetDepartureEntry(date: frame.date, place: place, snapshot: frame.snapshot, message: frame.message)
             }
             completion(Timeline(entries: entries, policy: .after(now.addingTimeInterval(15 * 60))))
         }

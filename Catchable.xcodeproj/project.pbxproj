@@ -27,23 +27,30 @@
 		266486573342435DED971ED8 /* TransitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1CA8FCD128D43DC8D073B /* TransitAPI.swift */; };
 		2706D5831BC238AE221668CC /* LiveDepartureProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F1592E524A1E4B020115BB /* LiveDepartureProviderTests.swift */; };
 		27A38E68A3E41FD25B8E073E /* WatchWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5AE91894A5A29CBB88EC21 /* WatchWidgetView.swift */; };
+		2E423903B77BBB856E25666B /* SearchAndRefreshTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2479F08607B30B7CF564492 /* SearchAndRefreshTests.swift */; };
 		2E73BB641BF340F69E76F4A7 /* DepartureColumns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059704BD8DBE35CF1B6362B2 /* DepartureColumns.swift */; };
 		2E8CD8A4388EA01710BC26A0 /* ServiceSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58225695727E95849D04CE47 /* ServiceSearchView.swift */; };
 		2EF756A0FAC5CFEE457CE6F4 /* TransitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1CA8FCD128D43DC8D073B /* TransitAPI.swift */; };
+		32DDBB35E97B8364554A7CEA /* WidgetTimelinePlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D82E12E5010CDFD90D7DD8 /* WidgetTimelinePlanner.swift */; };
 		34531C165700D7E4EE62BA42 /* TransportResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEDED4BEF82471EC38EB11 /* TransportResponse.swift */; };
 		3692D257CC9CAC96CFCEB9DD /* PlaceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388903D4F9389793AD5CEB7 /* PlaceStore.swift */; };
 		36B36D253DA93BCF8E66DA22 /* LiveDepartureProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FE3B424CFEC3C52B410899 /* LiveDepartureProvider.swift */; };
 		3BC28839ADB6EE68266EC7EC /* TransitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1CA8FCD128D43DC8D073B /* TransitAPI.swift */; };
 		3C4DA02C20F998D7995E6152 /* FailoverTransitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBE2547E27DABC20BDBD49 /* FailoverTransitAPI.swift */; };
 		479F368CB9AC8AA16B4AFF30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C285E348DD0C5470364A608 /* Assets.xcassets */; };
+		4C15F3CF12A456B05B0DBE68 /* WidgetTimelinePlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D82E12E5010CDFD90D7DD8 /* WidgetTimelinePlanner.swift */; };
+		50884576F08ED80334E6F9F8 /* LocationValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60674362E86A819DD2CFFF /* LocationValidation.swift */; };
+		5197020B5D0A7BEF784F824C /* WidgetTimelinePlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D82E12E5010CDFD90D7DD8 /* WidgetTimelinePlanner.swift */; };
 		53FD7BB1A33E48F2937B4491 /* CatchableTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60346AA6A943FA785F42CB21 /* CatchableTimelineProvider.swift */; };
 		576BF52E910C3218EF2DEC96 /* TransitTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C20E0E70FA92646F4205AB /* TransitTheme.swift */; };
 		590A70F068A7EB8212AA4700 /* FailoverTransitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBE2547E27DABC20BDBD49 /* FailoverTransitAPI.swift */; };
 		5A3AF44166E113F8DF7D0B33 /* NowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603192B87E9385AFB7FB84CC /* NowViewModel.swift */; };
+		5C487EFAD41531FBB9542BFE /* LocationValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60674362E86A819DD2CFFF /* LocationValidation.swift */; };
 		5DD4569D1930EB06D1E2C91E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBD0CABF8AD9664802DF807 /* APIClient.swift */; };
 		5DD61B23CA4B3906E717B56A /* DepartureSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880BE65563F7A519077A851D /* DepartureSelector.swift */; };
 		5F53ABCE887726719DAE82C0 /* TransitousAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A47EEF9E73E9BC9DA11E19 /* TransitousAPI.swift */; };
 		610F72A0A93B70BB178304A7 /* TransitousAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A47EEF9E73E9BC9DA11E19 /* TransitousAPI.swift */; };
+		6206CCC6BEF25C184D8385C3 /* LocationIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D21105E7648B95820D527B /* LocationIntegrationTests.swift */; };
 		64703A8851287033D096C533 /* CatchableWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A1CC44A403C6FD3934186AA4 /* CatchableWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6551F83838B87295EAF4F66A /* TransportResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEDED4BEF82471EC38EB11 /* TransportResponse.swift */; };
 		658D76F26B6E767C0E6FD62C /* WidgetDataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F9283CF785939BB5AD2A0A /* WidgetDataStoreTests.swift */; };
@@ -64,18 +71,23 @@
 		8EDA674013081EEAAC1A3857 /* CatchableWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED44B432EF90AA722DB09245 /* CatchableWatchApp.swift */; };
 		913989F256E4DD8E9BC99C7D /* LiveDepartureProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FE3B424CFEC3C52B410899 /* LiveDepartureProvider.swift */; };
 		93511024D678143F106AF394 /* CatchableTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60346AA6A943FA785F42CB21 /* CatchableTimelineProvider.swift */; };
+		94E868616F8189DF1EF644F4 /* WidgetTimelinePlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D82E12E5010CDFD90D7DD8 /* WidgetTimelinePlanner.swift */; };
 		95F4E5041D6B3AEFF7A30FF3 /* TransportResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEDED4BEF82471EC38EB11 /* TransportResponse.swift */; };
 		96AA12D148238C3ACDDE9CBC /* CatchableWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400EB6A46D790776D0F265AD /* CatchableWidgetView.swift */; };
+		98F4E08855F33B26D74C74A7 /* WatchSyncReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3D4139AFA0FBFE296622CD /* WatchSyncReceiver.swift */; };
+		9B8FB9156AF65CD9B7C657ED /* WatchSyncReceiverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685BC61DA960F2D2A4276DDE /* WatchSyncReceiverTests.swift */; };
 		9BEBE848192118F9483D8E65 /* FailoverTransitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBE2547E27DABC20BDBD49 /* FailoverTransitAPI.swift */; };
 		9EEBD9121936743D0D7290F0 /* TransitTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C20E0E70FA92646F4205AB /* TransitTheme.swift */; };
 		A23B72EE7A5026D0B0B1F695 /* CatchableWatchWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869CFB0530151C9853BAE7A /* CatchableWatchWidget.swift */; };
 		A53F52D243E4B5CBD0CEECB0 /* TransitousResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DEF16553E889ABFD934D65 /* TransitousResponse.swift */; };
 		A6835A12F2068FCB5B550826 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0EB8CFC81E3A7056BB38478 /* Assets.xcassets */; };
 		A8C8F2A93C0823C7E7FF01DF /* FailoverTransitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBE2547E27DABC20BDBD49 /* FailoverTransitAPI.swift */; };
+		AA2C7ACD5D31E7ACDC4FFDB6 /* LocationValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A8A510B44392FA7691986B /* LocationValidationTests.swift */; };
 		AB42B62CC82E82F831EB750C /* CatchableWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 693DEB2C5BF33727E13B0AF5 /* CatchableWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AB8BCF6F8080219ADF99200B /* LocationsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8065BFA4E4793F11BE07C04 /* LocationsStore.swift */; };
 		AB98A68B6DEBA37A3F48391A /* TransitModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D10706E21DF56D2541E80A8 /* TransitModels.swift */; };
 		AD9A9F8CAD8FC2EEEE7A422B /* TransitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1CA8FCD128D43DC8D073B /* TransitAPI.swift */; };
+		B096146AA2D55BA61A64FC7F /* WidgetTimelinePlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F4162B4EA671891B22787E /* WidgetTimelinePlannerTests.swift */; };
 		B25306A16BDC103D435664A5 /* TransitousResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555B1BFE197AC9B0F93FEAA1 /* TransitousResponseTests.swift */; };
 		B6C7F97745B8CC81B07CF403 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBD0CABF8AD9664802DF807 /* APIClient.swift */; };
 		B8C74AFBAED4D3E83CC67085 /* PlacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EEA23B35428BFDCEC04357 /* PlacesViewModel.swift */; };
@@ -93,14 +105,17 @@
 		C67CC1148C926950A8AF1A57 /* FailoverTransitAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F94F4F87AF9363F701BB940 /* FailoverTransitAPITests.swift */; };
 		CA1851E17623DBD263D88852 /* TransportResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEDED4BEF82471EC38EB11 /* TransportResponse.swift */; };
 		CBE9A5FE462E9947594E1C12 /* LocationsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8065BFA4E4793F11BE07C04 /* LocationsStore.swift */; };
+		CD0D592E350CB99A738E21E9 /* LocationValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60674362E86A819DD2CFFF /* LocationValidation.swift */; };
 		CF472A54F8AF1B10029DFF82 /* TransitousAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A47EEF9E73E9BC9DA11E19 /* TransitousAPI.swift */; };
 		D13149D5F615C4EA728DAF98 /* WatchDeparturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F1773C2501544211645FB7 /* WatchDeparturesViewModel.swift */; };
 		D7640C57CFE26BB18459D05F /* DepartureSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880BE65563F7A519077A851D /* DepartureSelector.swift */; };
 		E2209A658351E3FF6DB5C20A /* CatchableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5297D00AF1BC3370292E548F /* CatchableApp.swift */; };
 		E3AEB2003F9E61B8A7C365DE /* DepartureProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5725C3DC8D09C24AA9ABB6 /* DepartureProvider.swift */; };
 		EC3EA19A9FD31161FDD010A3 /* TransportAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F812E809AD3755A95D09417 /* TransportAPI.swift */; };
+		ED7FB09E696409187F4A565E /* WatchSyncReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3D4139AFA0FBFE296622CD /* WatchSyncReceiver.swift */; };
 		EEA4114DE4D26970814FDA7F /* WidgetDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C308000EDC32D10E596E7A0 /* WidgetDataStore.swift */; };
 		F302AF38934FAF9E715208B3 /* TransitModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D10706E21DF56D2541E80A8 /* TransitModels.swift */; };
+		F6BBA314E2AD66212BE120CC /* LocationValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60674362E86A819DD2CFFF /* LocationValidation.swift */; };
 		F7249374E046DC81C7AE30DD /* WatchSyncPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB34F81EFFE59B426C3D5D /* WatchSyncPayload.swift */; };
 		F9B9CABC00159476B2ACAC8D /* PlaceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C388903D4F9389793AD5CEB7 /* PlaceStore.swift */; };
 		FCEDB71F15FD8774E5971BA5 /* TransportAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F812E809AD3755A95D09417 /* TransportAPI.swift */; };
@@ -175,10 +190,12 @@
 
 /* Begin PBXFileReference section */
 		059704BD8DBE35CF1B6362B2 /* DepartureColumns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureColumns.swift; sourceTree = "<group>"; };
+		16F4162B4EA671891B22787E /* WidgetTimelinePlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTimelinePlannerTests.swift; sourceTree = "<group>"; };
 		1869CFB0530151C9853BAE7A /* CatchableWatchWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchableWatchWidget.swift; sourceTree = "<group>"; };
 		21DA6969252482D8AA81A097 /* WatchSyncPayloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSyncPayloadTests.swift; sourceTree = "<group>"; };
 		2C308000EDC32D10E596E7A0 /* WidgetDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDataStore.swift; sourceTree = "<group>"; };
 		2D10706E21DF56D2541E80A8 /* TransitModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitModels.swift; sourceTree = "<group>"; };
+		2F3D4139AFA0FBFE296622CD /* WatchSyncReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSyncReceiver.swift; sourceTree = "<group>"; };
 		3C285E348DD0C5470364A608 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D5AE91894A5A29CBB88EC21 /* WatchWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWidgetView.swift; sourceTree = "<group>"; };
 		4004262828F6897B018B537C /* StationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCard.swift; sourceTree = "<group>"; };
@@ -193,12 +210,15 @@
 		58225695727E95849D04CE47 /* ServiceSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSearchView.swift; sourceTree = "<group>"; };
 		603192B87E9385AFB7FB84CC /* NowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowViewModel.swift; sourceTree = "<group>"; };
 		60346AA6A943FA785F42CB21 /* CatchableTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchableTimelineProvider.swift; sourceTree = "<group>"; };
+		61A8A510B44392FA7691986B /* LocationValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationValidationTests.swift; sourceTree = "<group>"; };
 		61F8FA62FE84D161D9324E79 /* Catchable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Catchable.entitlements; sourceTree = "<group>"; };
+		685BC61DA960F2D2A4276DDE /* WatchSyncReceiverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSyncReceiverTests.swift; sourceTree = "<group>"; };
 		68E83438D7CB48F4D44E976D /* WatchSyncCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSyncCoordinator.swift; sourceTree = "<group>"; };
 		693DEB2C5BF33727E13B0AF5 /* CatchableWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchableWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F9283CF785939BB5AD2A0A /* WidgetDataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDataStoreTests.swift; sourceTree = "<group>"; };
 		6F94F4F87AF9363F701BB940 /* FailoverTransitAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailoverTransitAPITests.swift; sourceTree = "<group>"; };
 		70A47EEF9E73E9BC9DA11E19 /* TransitousAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitousAPI.swift; sourceTree = "<group>"; };
+		70D21105E7648B95820D527B /* LocationIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationIntegrationTests.swift; sourceTree = "<group>"; };
 		7610E39657A0C652C05B6227 /* MyLocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationsView.swift; sourceTree = "<group>"; };
 		77D5B6EE596FCE253ED5672D /* StationCoordinateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCoordinateTests.swift; sourceTree = "<group>"; };
 		7E688195A4114C835B94CA2B /* WatchDeparturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDeparturesView.swift; sourceTree = "<group>"; };
@@ -209,6 +229,7 @@
 		880BE65563F7A519077A851D /* DepartureSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureSelector.swift; sourceTree = "<group>"; };
 		89ADF1D6C561554D93DD8D79 /* CatchableWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchableWidgets.swift; sourceTree = "<group>"; };
 		8FA16AD1CC6EBBE4A4CC46DC /* LocationEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationEditorView.swift; sourceTree = "<group>"; };
+		95D82E12E5010CDFD90D7DD8 /* WidgetTimelinePlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTimelinePlanner.swift; sourceTree = "<group>"; };
 		9F812E809AD3755A95D09417 /* TransportAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportAPI.swift; sourceTree = "<group>"; };
 		A1CC44A403C6FD3934186AA4 /* CatchableWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = CatchableWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A271484F8E4D4763D30C9C89 /* NowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowView.swift; sourceTree = "<group>"; };
@@ -222,6 +243,7 @@
 		C388903D4F9389793AD5CEB7 /* PlaceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceStore.swift; sourceTree = "<group>"; };
 		CED312504E86BA9E2A60B9D3 /* LocationsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsStoreTests.swift; sourceTree = "<group>"; };
 		CFBD0CABF8AD9664802DF807 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		D2479F08607B30B7CF564492 /* SearchAndRefreshTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndRefreshTests.swift; sourceTree = "<group>"; };
 		D8EA1074C4026FC6D23D0CD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DCFB34F81EFFE59B426C3D5D /* WatchSyncPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSyncPayload.swift; sourceTree = "<group>"; };
 		DE02E54E3B5827B858E33179 /* CatchableWatchWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CatchableWatchWidgets.entitlements; sourceTree = "<group>"; };
@@ -229,6 +251,7 @@
 		E3567BCBC15F5684B539AF15 /* CatchableWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CatchableWatch.entitlements; sourceTree = "<group>"; };
 		E4DEF16553E889ABFD934D65 /* TransitousResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitousResponse.swift; sourceTree = "<group>"; };
 		E8065BFA4E4793F11BE07C04 /* LocationsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsStore.swift; sourceTree = "<group>"; };
+		EA60674362E86A819DD2CFFF /* LocationValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationValidation.swift; sourceTree = "<group>"; };
 		EB7C7204F98278A66E43FDB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		ED44B432EF90AA722DB09245 /* CatchableWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchableWatchApp.swift; sourceTree = "<group>"; };
 		F228A8E41036A33AD8CDD23C /* MapKitLocationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitLocationServices.swift; sourceTree = "<group>"; };
@@ -243,6 +266,7 @@
 			children = (
 				68E83438D7CB48F4D44E976D /* WatchSyncCoordinator.swift */,
 				DCFB34F81EFFE59B426C3D5D /* WatchSyncPayload.swift */,
+				2F3D4139AFA0FBFE296622CD /* WatchSyncReceiver.swift */,
 			);
 			path = WatchConnectivityShared;
 			sourceTree = "<group>";
@@ -253,12 +277,17 @@
 				C26C689C7201F26EA68C25B5 /* DepartureSelectorTests.swift */,
 				6F94F4F87AF9363F701BB940 /* FailoverTransitAPITests.swift */,
 				A5F1592E524A1E4B020115BB /* LiveDepartureProviderTests.swift */,
+				70D21105E7648B95820D527B /* LocationIntegrationTests.swift */,
 				CED312504E86BA9E2A60B9D3 /* LocationsStoreTests.swift */,
+				61A8A510B44392FA7691986B /* LocationValidationTests.swift */,
 				4FFF1164D6E99C7B24766185 /* SampleModeTests.swift */,
+				D2479F08607B30B7CF564492 /* SearchAndRefreshTests.swift */,
 				77D5B6EE596FCE253ED5672D /* StationCoordinateTests.swift */,
 				555B1BFE197AC9B0F93FEAA1 /* TransitousResponseTests.swift */,
 				21DA6969252482D8AA81A097 /* WatchSyncPayloadTests.swift */,
+				685BC61DA960F2D2A4276DDE /* WatchSyncReceiverTests.swift */,
 				69F9283CF785939BB5AD2A0A /* WidgetDataStoreTests.swift */,
+				16F4162B4EA671891B22787E /* WidgetTimelinePlannerTests.swift */,
 			);
 			path = CatchableTests;
 			sourceTree = "<group>";
@@ -357,6 +386,7 @@
 		6D0F7F6266506562E29ACB50 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EA60674362E86A819DD2CFFF /* LocationValidation.swift */,
 				2D10706E21DF56D2541E80A8 /* TransitModels.swift */,
 			);
 			path = Models;
@@ -475,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				2C308000EDC32D10E596E7A0 /* WidgetDataStore.swift */,
+				95D82E12E5010CDFD90D7DD8 /* WidgetTimelinePlanner.swift */,
 			);
 			path = SharedWidget;
 			sourceTree = "<group>";
@@ -724,6 +755,7 @@
 				811DD24AA56F984E11AFD048 /* DepartureSelector.swift in Sources */,
 				590A70F068A7EB8212AA4700 /* FailoverTransitAPI.swift in Sources */,
 				6EB979933B0E2980296C8F42 /* LiveDepartureProvider.swift in Sources */,
+				CD0D592E350CB99A738E21E9 /* LocationValidation.swift in Sources */,
 				BD0E7FC951F0104E45BEC627 /* LocationsStore.swift in Sources */,
 				031A83BD6ACAC24049504E9F /* PlaceStore.swift in Sources */,
 				3BC28839ADB6EE68266EC7EC /* TransitAPI.swift in Sources */,
@@ -734,6 +766,7 @@
 				BF04E7B0C558B16563CE48BC /* TransportAPI.swift in Sources */,
 				95F4E5041D6B3AEFF7A30FF3 /* TransportResponse.swift in Sources */,
 				7145B85A60547676346A7049 /* WidgetDataStore.swift in Sources */,
+				4C15F3CF12A456B05B0DBE68 /* WidgetTimelinePlanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,6 +780,7 @@
 				030E447CF78A744B855DFE7F /* DepartureSelector.swift in Sources */,
 				9BEBE848192118F9483D8E65 /* FailoverTransitAPI.swift in Sources */,
 				36B36D253DA93BCF8E66DA22 /* LiveDepartureProvider.swift in Sources */,
+				50884576F08ED80334E6F9F8 /* LocationValidation.swift in Sources */,
 				2EF756A0FAC5CFEE457CE6F4 /* TransitAPI.swift in Sources */,
 				F302AF38934FAF9E715208B3 /* TransitModels.swift in Sources */,
 				9EEBD9121936743D0D7290F0 /* TransitTheme.swift in Sources */,
@@ -758,7 +792,9 @@
 				D13149D5F615C4EA728DAF98 /* WatchDeparturesViewModel.swift in Sources */,
 				0B89FDA8FB18B0A13D5E886E /* WatchSyncCoordinator.swift in Sources */,
 				F7249374E046DC81C7AE30DD /* WatchSyncPayload.swift in Sources */,
+				98F4E08855F33B26D74C74A7 /* WatchSyncReceiver.swift in Sources */,
 				169C7F23A6CCE4200D68B073 /* WidgetDataStore.swift in Sources */,
+				5197020B5D0A7BEF784F824C /* WidgetTimelinePlanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -773,6 +809,7 @@
 				D7640C57CFE26BB18459D05F /* DepartureSelector.swift in Sources */,
 				A8C8F2A93C0823C7E7FF01DF /* FailoverTransitAPI.swift in Sources */,
 				BB55A9C1CD83334F1DA08F60 /* LiveDepartureProvider.swift in Sources */,
+				F6BBA314E2AD66212BE120CC /* LocationValidation.swift in Sources */,
 				AB8BCF6F8080219ADF99200B /* LocationsStore.swift in Sources */,
 				3692D257CC9CAC96CFCEB9DD /* PlaceStore.swift in Sources */,
 				266486573342435DED971ED8 /* TransitAPI.swift in Sources */,
@@ -784,6 +821,7 @@
 				6551F83838B87295EAF4F66A /* TransportResponse.swift in Sources */,
 				27A38E68A3E41FD25B8E073E /* WatchWidgetView.swift in Sources */,
 				BCE022C6E51277B829166FDF /* WidgetDataStore.swift in Sources */,
+				94E868616F8189DF1EF644F4 /* WidgetTimelinePlanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,12 +832,17 @@
 				18639578F91F6B1CD4D6235B /* DepartureSelectorTests.swift in Sources */,
 				C67CC1148C926950A8AF1A57 /* FailoverTransitAPITests.swift in Sources */,
 				2706D5831BC238AE221668CC /* LiveDepartureProviderTests.swift in Sources */,
+				6206CCC6BEF25C184D8385C3 /* LocationIntegrationTests.swift in Sources */,
+				AA2C7ACD5D31E7ACDC4FFDB6 /* LocationValidationTests.swift in Sources */,
 				1FD62A1E10302161C7D5FB9A /* LocationsStoreTests.swift in Sources */,
 				1409C69AF5E6FE1855D796CE /* SampleModeTests.swift in Sources */,
+				2E423903B77BBB856E25666B /* SearchAndRefreshTests.swift in Sources */,
 				6D2FF870B9B6318EFD8F0F79 /* StationCoordinateTests.swift in Sources */,
 				B25306A16BDC103D435664A5 /* TransitousResponseTests.swift in Sources */,
 				068128E002C875CCCFF19B59 /* WatchSyncPayloadTests.swift in Sources */,
+				9B8FB9156AF65CD9B7C657ED /* WatchSyncReceiverTests.swift in Sources */,
 				658D76F26B6E767C0E6FD62C /* WidgetDataStoreTests.swift in Sources */,
+				B096146AA2D55BA61A64FC7F /* WidgetTimelinePlannerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,6 +858,7 @@
 				3C4DA02C20F998D7995E6152 /* FailoverTransitAPI.swift in Sources */,
 				913989F256E4DD8E9BC99C7D /* LiveDepartureProvider.swift in Sources */,
 				BABF665024B8BDBC36FC35BD /* LocationEditorView.swift in Sources */,
+				5C487EFAD41531FBB9542BFE /* LocationValidation.swift in Sources */,
 				CBE9A5FE462E9947594E1C12 /* LocationsStore.swift in Sources */,
 				C06AE8C96A66149E79F31F4A /* MapKitLocationServices.swift in Sources */,
 				67F363180C0209272FDD8729 /* MyLocationsView.swift in Sources */,
@@ -835,7 +879,9 @@
 				CA1851E17623DBD263D88852 /* TransportResponse.swift in Sources */,
 				C041DE09B516DA53307A3269 /* WatchSyncCoordinator.swift in Sources */,
 				02B616BA60EDA7C825DD1544 /* WatchSyncPayload.swift in Sources */,
+				ED7FB09E696409187F4A565E /* WatchSyncReceiver.swift in Sources */,
 				EEA4114DE4D26970814FDA7F /* WidgetDataStore.swift in Sources */,
+				32DDBB35E97B8364554A7CEA /* WidgetTimelinePlanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,6 @@ extension Notification.Name {
     private let store = WidgetDataStore()
     private var started = false
     private let contextKey = "catchable.state.v1"
-    private let receivedAtKey = "catchable.watch.receivedAt.v1"
 
     func start() {
         guard WCSession.isSupported(), !started else { return }
@@ -65,20 +64,11 @@ extension Notification.Name {
 
     private func receive(_ context: [String: Any]) {
         #if os(watchOS)
-        guard let data = context[contextKey] as? Data,
-              let payload = try? WatchSyncPayload.decode(data) else { return }
-        let defaults = UserDefaults(suiteName: WidgetDataStore.groupID) ?? .standard
-        if let previous = defaults.object(forKey: receivedAtKey) as? Date, previous >= payload.sentAt { return }
+        guard let data = context[contextKey] as? Data else { return }
         do {
-            try store.savePlace(payload.place)
-            if let snapshot = payload.snapshot {
-                // Don't replace a newer board fetched directly by the watch.
-                if store.loadSnapshot(for: payload.place)?.fetchedAt ?? .distantPast <= snapshot.fetchedAt {
-                    try store.saveSnapshot(snapshot, for: payload.place)
-                }
+            if try WatchSyncReceiver().receive(data) {
+                NotificationCenter.default.post(name: .catchableWatchStateDidChange, object: nil)
             }
-            defaults.set(payload.sentAt, forKey: receivedAtKey)
-            NotificationCenter.default.post(name: .catchableWatchStateDidChange, object: nil)
         } catch {
             // Keep the prior revision so the next delivery can retry persistence.
         }

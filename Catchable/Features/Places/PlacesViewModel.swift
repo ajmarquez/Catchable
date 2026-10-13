@@ -56,6 +56,12 @@ import Observation
         var location = location
         if location.locationID == nil { location.locationID = UUID().uuidString }
         let previous = locations.first { $0.id == location.id }
+        let unchangedLegacyAddress = previous != nil && previous?.label == location.label &&
+            previous?.address == location.address && previous?.coordinate == location.coordinate
+        guard unchangedLegacyAddress || LocationValidation.isValid(label: location.label, address: location.address, coordinate: location.coordinate) else {
+            saveError = "Choose a label and a real address in My Locations."
+            return
+        }
         let moved = previous?.coordinate != location.coordinate || previous?.address != location.address
         if moved {
             walkingRequests.removeValue(forKey: location.id)

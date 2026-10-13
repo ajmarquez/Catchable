@@ -93,7 +93,7 @@ import MapKit
     }
 
     private var canSave: Bool {
-        !label.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && coordinate != nil && selectedAddress != nil
+        LocationValidation.isValid(label: label, address: selectedAddress, coordinate: coordinate)
     }
     private func save() {
         guard canSave, let coordinate, let selectedAddress else { return }
