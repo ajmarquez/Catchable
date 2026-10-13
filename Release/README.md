@@ -33,3 +33,15 @@ Apple processing completed. Build 2 is assigned to Internal Testing and Personal
 The encryption declaration is false because the app uses system HTTPS and does not implement non-exempt encryption.
 
 External testing requires separate beta review and tester setup.
+
+
+## Pending build 3
+Version 0.1.0 (3) includes Watch support, VBB-first API fallback, multiple locations and MapKit walking times. All 47 regression tests passed before release preparation. The signed archive is `build/Catchable-0.1.0-build3.xcarchive`; both iPhone and Watch components use build 3.
+
+Upload attempted on 2026-10-13, but Xcode reported a missing Xcode-Token and App Store Connect access failure. Build 3 has not uploaded. Sign in again in Xcode Settings > Accounts, then retry:
+
+```sh
+xcodebuild -exportArchive -archivePath build/Catchable-0.1.0-build3.xcarchive \
+  -exportOptionsPlist Release/ExportOptions.plist -exportPath build/TestFlight-build3 \
+  -allowProvisioningUpdates
+```

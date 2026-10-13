@@ -36,7 +36,7 @@ targets:
         DEVELOPMENT_TEAM: A98K3QG549
         CODE_SIGN_STYLE: Automatic
         MARKETING_VERSION: "0.1.0"
-        CURRENT_PROJECT_VERSION: "2"
+        CURRENT_PROJECT_VERSION: "3"
         INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
   CatchableWidgets:
     type: app-extension
@@ -70,7 +70,7 @@ targets:
         SWIFT_VERSION: "5.0"
         TARGETED_DEVICE_FAMILY: "1"
         MARKETING_VERSION: "0.1.0"
-        CURRENT_PROJECT_VERSION: "2"
+        CURRENT_PROJECT_VERSION: "3"
         APPLICATION_EXTENSION_API_ONLY: YES
         SKIP_INSTALL: YES
   CatchableWatch:
@@ -112,7 +112,7 @@ targets:
         CODE_SIGN_STYLE: Automatic
         SWIFT_VERSION: "5.0"
         MARKETING_VERSION: "0.1.0"
-        CURRENT_PROJECT_VERSION: "2"
+        CURRENT_PROJECT_VERSION: "3"
         TARGETED_DEVICE_FAMILY: "4"
         SKIP_INSTALL: YES
   CatchableWatchWidgets:
@@ -147,7 +147,7 @@ targets:
         CODE_SIGN_STYLE: Automatic
         SWIFT_VERSION: "5.0"
         MARKETING_VERSION: "0.1.0"
-        CURRENT_PROJECT_VERSION: "2"
+        CURRENT_PROJECT_VERSION: "3"
         TARGETED_DEVICE_FAMILY: "4"
         APPLICATION_EXTENSION_API_ONLY: YES
         SKIP_INSTALL: YES
