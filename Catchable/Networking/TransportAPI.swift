@@ -2,7 +2,7 @@ import Foundation
 
 /// Third-party VBB/HAFAS wrapper; not an official VBB API contract.
 struct TransportAPI: TransitAPI {
-    var client = APIClient()
+    var client = APIClient(userAgent: "Catchable/0.1 (https://github.com/ajmarquez/Catchable)", timeoutInterval: 8)
     let baseURL = URL(string: "https://v6.vbb.transport.rest")!
 
     func searchStops(_ query: String) async throws -> [TransportStop] {

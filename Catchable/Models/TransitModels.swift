@@ -36,4 +36,5 @@ struct DepartureSnapshot: Codable {
     var departures: [Departure]
     var fetchedAt: Date
     var isSample: Bool
+    var source: String? = nil
 }

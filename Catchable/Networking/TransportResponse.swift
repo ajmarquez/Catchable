@@ -3,10 +3,12 @@ import Foundation
 struct TransportStop: Decodable, Identifiable {
     let id: String
     let name: String
+    var ids: [String: String]? = nil
 }
 
 struct TransportBoard: Decodable {
     let departures: [TransportDeparture]
+    var source: String? = nil
 }
 
 struct TransportDeparture: Decodable {
