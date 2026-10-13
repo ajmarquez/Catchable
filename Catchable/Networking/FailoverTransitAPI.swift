@@ -12,7 +12,7 @@ struct FailoverTransitAPI: TransitAPI {
             return try await primary.searchStops(query).map { stop in
                 // Preserve IFOPT identity for fallback, including non-Berlin VBB stops.
                 let reference = "vbb:\(stop.id)|\(stop.ids?["ifopt"] ?? "")"
-                return TransportStop(id: reference, name: stop.name)
+                return TransportStop(id: reference, name: stop.name, location: stop.location, lat: stop.lat, lon: stop.lon)
             }
         } catch {
             try preserveCancellation(error)

@@ -13,10 +13,16 @@ import SwiftUI
                     .tabItem { Label("Now", systemImage: "clock.fill") }
                     .tag(0)
                 PlacesView(viewModel: places)
-                    .tabItem { Label("Places", systemImage: "mappin.circle.fill") }
+                    .tabItem { Label("Stations", systemImage: "tram.fill") }
                     .tag(1)
+                MyLocationsView(viewModel: places)
+                    .tabItem { Label("My Locations", systemImage: "mappin.and.ellipse") }
+                    .tag(2)
             }.tint(TransitTheme.accent).preferredColorScheme(.light)
-                .task { WatchSyncCoordinator.shared.start() }
+                .task {
+                    WatchSyncCoordinator.shared.start()
+                    await places.resumeWalkingCalculations()
+                }
                 .onOpenURL { url in
                     if url.scheme == "catchable", url.host == "now" { selectedTab = 0 }
                 }

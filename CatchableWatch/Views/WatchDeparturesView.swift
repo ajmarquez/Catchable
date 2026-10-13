@@ -54,14 +54,17 @@ private struct WatchServiceRow: View {
                 Text(service.destination).font(.caption.bold()).fixedSize(horizontal: false, vertical: true)
             }
             HStack(alignment: .firstTextBaseline, spacing: 9) {
-                if departures.isEmpty { Text("No catchable departures").font(.caption2).foregroundStyle(.secondary) }
+                if departures.isEmpty {
+                    Text(service.walkingState == .pending ? "Set address on iPhone" : service.walkingState == .unavailable ? "Walking route unavailable" : "No catchable departures")
+                        .font(.caption2).foregroundStyle(.secondary)
+                }
                 ForEach(departures) { departure in
                     Text("\(max(0, Int(ceil(departure.date.timeIntervalSince(now) / 60))))")
                         .font(.title2.bold()).monospacedDigit()
                 }
                 if !departures.isEmpty { Text("min").font(.caption2).foregroundStyle(.secondary) }
             }
-            Text("\(service.walkingMinutes) min walk")
+            Text(service.walkingState == .pending ? "Walking time pending" : service.walkingState == .unavailable ? "Walking route unavailable" : "\(service.walkingMinutes) min walk")
                 .font(.caption2).foregroundStyle(.secondary)
             if departures.contains(where: { !$0.isRealtime }) {
                 Text("Includes scheduled times").font(.caption2).foregroundStyle(.secondary)

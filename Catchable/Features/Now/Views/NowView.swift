@@ -19,19 +19,39 @@ struct NowView: View {
                         Spacer()
                         Text(context.date, format: .dateTime.hour().minute()).font(.system(size: 23, weight: .semibold)).monospacedDigit()
                     }
-                    Text("Departing from \(activePlace.label)").font(.title3).foregroundStyle(.secondary).padding(.bottom, 4)
+                    if !sampleMode && places.locations.count > 1 {
+                        Menu {
+                            ForEach(places.locations) { location in
+                                Button { places.selectLocation(id: location.id) } label: {
+                                    if location.id == places.activeLocationID { Label(location.label, systemImage: "checkmark") }
+                                    else { Text(location.label) }
+                                }
+                            }
+                        } label: {
+                            HStack {
+                                Text("Departing from \(activePlace.label)")
+                                Image(systemName: "chevron.down").font(.caption)
+                            }.font(.title3).foregroundStyle(.secondary).padding(.bottom, 4)
+                        }
+                    } else {
+                        Text("Departing from \(activePlace.label)").font(.title3).foregroundStyle(.secondary).padding(.bottom, 4)
+                    }
+                    if !sampleMode && !activePlace.services.isEmpty && activePlace.coordinate == nil {
+                        Text("Set a real address in My Locations to calculate walking times.")
+                            .font(.caption).foregroundStyle(.secondary)
+                    }
                     if viewModel.isLoading { ProgressView("Loading departures…").frame(maxWidth: .infinity) }
                     if let error = viewModel.errorMessage { Text(error).foregroundStyle(.red) }
                     if !sampleMode && places.place.services.contains(where: { $0.isSelected && $0.stopID.map { FailoverTransitAPI().supportsStopID($0) } != true }) {
                         Text("Some services have unsupported stop IDs. Reselect them in Places.").font(.caption).foregroundStyle(.secondary)
                     }
                     if selected.isEmpty {
-                        ContentUnavailableView("Choose your services", systemImage: "tram", description: Text("Add a live service or enable Use sample data in Places."))
+                        ContentUnavailableView("Choose your stations", systemImage: "tram", description: Text("Add a location in My Locations, then add its stations in Stations."))
                     }
                     ForEach(stations, id: \.self) { station in
                         StationCard(services: selected.filter { $0.station == station }, place: activePlace, now: context.date, viewModel: viewModel)
                     }
-                    if let snapshot = viewModel.snapshot {
+                    if let snapshot = viewModel.snapshot, !selected.isEmpty {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(snapshot.isSample ? "Sample departures · Not live transport data" : "\(snapshot.source ?? "VBB REST · Transitous fallback") · Realtime where available")
                             Text("Updated \(snapshot.fetchedAt.formatted(date: .omitted, time: .shortened))")

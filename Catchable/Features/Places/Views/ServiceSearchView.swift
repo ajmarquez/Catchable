@@ -25,7 +25,8 @@ struct ServiceSearchView: View {
                             Button {
                                 onSelect(SavedService(id: UUID().uuidString, station: stop.name,
                                     line: option.line, destination: option.destination, mode: option.mode,
-                                    walkingMinutes: 5, stopID: stop.id, providerLineID: option.lineID))
+                                    walkingMinutes: 0, stopID: stop.id, providerLineID: option.lineID,
+                                    stationCoordinate: stop.coordinate, walkingState: .pending))
                                 dismiss()
                             } label: {
                                 VStack(alignment: .leading) {

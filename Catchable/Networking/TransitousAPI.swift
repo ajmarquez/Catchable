@@ -17,7 +17,7 @@ struct TransitousAPI: TransitAPI {
         let locations = try await client.get(url, as: [TransitousLocation].self)
         // Restrict this first iteration to VBB stops, avoiding duplicate national feeds.
         return locations.filter { $0.type == "STOP" && $0.id.hasPrefix("de-VBB_") }
-            .map { TransportStop(id: $0.id, name: $0.name) }
+            .map { TransportStop(id: $0.id, name: $0.name, lat: $0.lat, lon: $0.lon) }
     }
 
     func board(stopID: String, minutes: Int = 120) async throws -> TransportBoard {

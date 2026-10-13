@@ -18,38 +18,38 @@ The committed project is generated from `project.yml` with XcodeGen (`xcodegen g
 View models coordinate state; transport selection logic and persistence stay outside views. Dependencies are wired at the app entry point.
 
 ## First iteration scope
-Now uses the selected Vignelli layout: black station headers, circular route badges, three numeric departure columns, digital clock, and “Departing from Home”. Places allows editing the label, optional address, buffer, stations, lines, directions, modes, and manual walking times. Settings persist across launches.
+Now uses the selected Vignelli layout: black station headers, circular route badges, three numeric departure columns, digital clock, and “Departing from Home”. My Locations manages labelled, verified addresses and safety buffers. Stations manages stops and selected line/directions under each location. Now offers a departure-location switcher. Settings persist across launches.
 
 ## Live API integration
 The default provider tries **VBB REST** (`https://v6.vbb.transport.rest`) first. A failed search or departure request falls back to **Transitous / MOTIS** (`https://api.transitous.org/api/v1/geocode` and `/api/v6/stoptimes`). A successful empty response stays empty, and cancelled requests never start fallback. VBB requests have an eight-second timeout; Transitous retains its existing timeout. API failures never silently enable sample mode.
 
 New VBB search selections preserve the numeric stop ID and IFOPT identity, allowing each provider to receive its own ID. Existing Transitous selections work without reselecting. Legacy numeric-only selections resolve the fallback station by matching the exact VBB ID in station search results; unresolved identity fails rather than guessing another stop. Provider-specific route IDs differ, so matching across providers requires the same line name, transport mode and direction, normalizing cosmetic Berlin/transport-prefix/street-abbreviation differences.
 
-In Places, disable Use sample data, tap Add service, search a VBB stop, select a line/direction, and set your walking time. New installs start empty. Discovery lists supported services in the next 120 minutes, not a complete all-day catalogue. Search starts at three characters and updates with each further edit.
+In My Locations, add a label and select a real address from MapKit search results. In Stations, use Add station under that location, search a VBB stop and choose a line/direction. Walking time is calculated automatically. New installs start empty. Discovery lists supported services in the next 120 minutes, not a complete all-day catalogue. Search starts at three characters and updates with each further edit.
 
 One departure-board request per selected stop fetches a 120-minute window. The selector removes cancellations and departures you cannot reach, returning the next three. Realtime flags come from provider data; scheduled fallback is labelled. Now displays the actual source, including mixed VBB/Transitous results. The same routing is used by iPhone, Home Screen widgets, Watch and complications. Home address is never sent to either transit API; stop searches and IDs are sent.
 
 VBB REST is a third-party wrapper, not an official VBB API contract: https://v6.vbb.transport.rest/ . Transitous hosted use requires open-source, noncommercial access: https://transitous.org/api/ . Catchable is published under MIT; transit data retains its own source terms. Source/attribution links remain visible in Now, and clients include Catchable contact information.
 
-Walking times remain manual. No automatic home-exit monitoring yet.
+Walking times use MapKit pedestrian routes, rounded up to whole minutes. No automatic home-exit monitoring yet.
 
 ## Validation
 TransitousResponseTests cover response mapping, cancellation, scheduled fallback, realtime flags and legacy stop-ID rejection. LiveDepartureProviderTests exercise mocked HTTP response decoding, exact selected direction/line/product filtering, cancelled services, scheduled fallback, and legacy settings decoding. DepartureSelectorTests cover reachability boundaries, cancellation, service isolation, ordering, three-result limit, and persistence round-trip. Run with Xcode Product → Test after installing an iOS simulator runtime.
 
 ## Next
-Validate the public provider on device and evaluate official VBB access before production; add MapKit walking estimates; then validate Core Location home-exit behavior on a physical device. No server or credentials configured yet.
+Validate the public provider on device and evaluate official VBB access before production; validate MapKit walking routes on device; then validate Core Location home-exit behavior on a physical device. No server or credentials configured yet.
 
 ## Navigation appearance
-Use the system SwiftUI TabView with SF Symbols: `clock.fill` for Now and `mappin.circle.fill` for Places. On iOS 26 and later, the native tab bar adopts Liquid Glass; earlier supported versions use their native system appearance. Do not recreate the flat tab bar from the concept image or add custom tab-bar backgrounds.
+Use the system SwiftUI TabView with SF Symbols: `clock.fill` for Now, `tram.fill` for Stations, and `mappin.and.ellipse` for My Locations. On iOS 26 and later, the native tab bar adopts Liquid Glass; earlier supported versions use their native system appearance. Do not recreate the flat tab bar from the concept image or add custom tab-bar backgrounds.
 
 ### API verification status
 On 2026-10-13, a live Swift check exercised VBB station search → M10 toward Warschauer Straße → three catchable departures. Forcing primary timeout exercised real Transitous fallback with the same saved station and direction, also returning three catchable departures. Both boards included realtime data. Deterministic tests cover routing, cancellation, empty results, ID translation, legacy identity resolution, and cross-provider direction filtering.
 
 ## Offline sample preview
-In Places, enable **Use sample data**. Now displays three example stations without API access. Disable it to return to saved live services. Demo selection is explicit; API failures never silently enable it.
+In My Locations, enable **Use sample data**. Now displays three example stations without API access. Disable it to return to saved live services. Demo selection is explicit; API failures never silently enable it.
 
 ## Home Screen widgets
-`CatchableWidgets` contains three native WidgetKit designs: Route badges, Compact timetable (no circular logos), and Next departure. Each supports small, medium, and large Home Screen sizes. There is no current-time clock. Add one from the Home Screen widget gallery after launching the app and saving services in Places; widgets use that saved place, walking times, and buffer. Tap a widget to open Catchable.
+`CatchableWidgets` contains three native WidgetKit designs: Route badges, Compact timetable (no circular logos), and Next departure. Each supports small, medium, and large Home Screen sizes. There is no current-time clock. Add one from the Home Screen widget gallery after launching the app and saving services in Stations; widgets use that saved place, walking times, and buffer. Tap a widget to open Catchable.
 
 `SharedWidget` stores the saved place and a matching departure cache in the App Group `group.com.ajmarquez.catchable`. Existing app-only preferences migrate when the app opens. Live widgets fetch through the same Transitous provider and apply the same departure selector as Now. Gallery previews use clearly labelled sample data. Widgets never silently substitute sample departures after a network error.
 
@@ -73,3 +73,17 @@ Launch Catchable on both devices after installing. Save your live services on iP
 
 ### Watch and failover validation
 19 tests pass, including seven new failover cases. The signed iPhone archive embeds the signed Watch app and both widget extensions. Simulator visual checks verified the Watch companion app and a pinned rectangular Smart Stack widget using live M10 departures from a manually seeded saved-service configuration. This verifies rendering, the device-local App Group cache, and direct Watch networking; it does not verify cross-device WatchConnectivity delivery. Physical paired-device testing remains required. The Watch/failover branch is not merged or uploaded to TestFlight.
+
+
+## Locations and walking routes
+`feature/locations-walking-times` adds separate Now, Stations, and My Locations tabs. New locations require a label and a selected MapKit address, with a native SwiftUI map preview. Now manually selects one departure location; its stations, walking times and buffer also feed Home Screen widgets and Apple Watch. Automatic location switching is deferred.
+
+`LocationsStore` persists the collection and active location in the App Group, retaining `PlaceStore` as a compatibility mirror of the active location. Existing single-place services migrate without being deleted; their prior manual walking estimates become pending until a real address is selected. Editing the origin invalidates walking results. Async route responses cannot restore deleted locations or overwrite a newer origin. Inactive location edits do not invalidate the active widget cache.
+
+Station coordinates come from either transit API. Legacy station selections resolve coordinates by exact stop identity, never the first search result. MapKit calculates pedestrian routes once per station within a location, rounded up to minutes and cached with the service. Pending/failed routes are excluded from catchable departure selection across phone/widgets/Watch. Stations supports retrying walking calculations and swipe deletion of a station's selected services. Location deletion asks for confirmation.
+
+Addresses and route endpoints are sent to Apple Maps for address search and walking directions. They are not sent to the transit APIs. No device-location permission is needed because the user selects a fixed address. The `Features/Locations/Services` boundary isolates MapKit from the shared domain models and widget targets. MapKit address search was verified with Frankfurter Allee 1, Berlin; its pedestrian route to Bersarinplatz returned 7 minutes during implementation. Physical route estimates may vary.
+
+
+### Locations validation
+30 tests pass, including location migration, per-location deletion, delayed route responses after origin edits/deletion, exact station-coordinate resolution, cross-provider station identity, and failed/pending walking routes. The signed archive (including Watch and widgets) builds without warnings. Live MapKit address search and pedestrian routing returned a 7-minute route from Frankfurter Allee 1 to Bersarinplatz. A simulator screenshot confirms the three native tabs; interactive location/station setup and swipe gestures still need checking because the Mac was locked during verification. This branch has not been merged or uploaded.

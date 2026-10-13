@@ -4,6 +4,8 @@ struct TransitousLocation: Decodable {
     let type: String
     let id: String
     let name: String
+    var lat: Double? = nil
+    var lon: Double? = nil
 }
 
 struct TransitousBoard: Decodable {

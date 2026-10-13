@@ -9,6 +9,8 @@ struct WatchWidgetView: View {
     private var departures: [Departure] { service.map { entry.catchableDepartures(for: $0) } ?? [] }
     private var status: String {
         if service == nil { return "Set up on iPhone" }
+        if service?.walkingState == .pending { return "Set address on iPhone" }
+        if service?.walkingState == .unavailable { return "Walking route unavailable" }
         if entry.snapshot == nil { return "Open to refresh" }
         return "No departures"
     }

@@ -25,6 +25,7 @@ struct LiveDepartureProvider: DepartureProvider {
                 }
             }
         }
-        return DepartureSnapshot(departures: departures, fetchedAt: Date(), isSample: false, source: sources.sorted().joined(separator: " + "))
+        return DepartureSnapshot(departures: departures, fetchedAt: Date(), isSample: false,
+            source: sources.isEmpty ? nil : sources.sorted().joined(separator: " + "))
     }
 }

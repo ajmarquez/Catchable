@@ -35,7 +35,11 @@ struct StationCard: View {
                     if !departures.isEmpty && departures.contains(where: { !$0.isRealtime }) {
                         Text("Includes scheduled times").font(.caption2).foregroundStyle(.secondary)
                     }
-                    if departures.isEmpty { Text("No catchable departures in the next 2 hours").font(.caption).foregroundStyle(.secondary) }
+                    if departures.isEmpty {
+                        Text(service.walkingState == .pending ? "Walking time needs calculating. Check Stations." :
+                            service.walkingState == .unavailable ? "Walking route unavailable. Retry in Stations." :
+                            "No catchable departures in the next 2 hours").font(.caption).foregroundStyle(.secondary)
+                    }
                 }.padding(12)
                 if service.id != services.last?.id { Divider().padding(.horizontal, 12) }
             }
@@ -43,7 +47,9 @@ struct StationCard: View {
             .overlay(RoundedRectangle(cornerRadius: 2).stroke(Color.gray.opacity(0.2), lineWidth: 1))
     }
     private var walkingLabel: some View {
-        Text("\(services.first?.walkingMinutes ?? 0) min walk · \(place.bufferMinutes) min buffer")
+        Text(services.first?.walkingState == .pending ? "Walking time pending" :
+            services.first?.walkingState == .unavailable ? "Walking route unavailable" :
+            "\(services.first?.walkingMinutes ?? 0) min walk · \(place.bufferMinutes) min buffer")
             .font(.caption)
     }
     private func routeBadge(_ service: SavedService) -> some View {

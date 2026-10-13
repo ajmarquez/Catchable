@@ -1,9 +1,23 @@
 import Foundation
 
 struct TransportStop: Decodable, Identifiable {
+    struct Location: Decodable {
+        let latitude: Double
+        let longitude: Double
+    }
     let id: String
     let name: String
     var ids: [String: String]? = nil
+    var location: Location? = nil
+    var lat: Double? = nil
+    var lon: Double? = nil
+    var coordinate: GeoCoordinate? {
+        let result: GeoCoordinate?
+        if let location { result = GeoCoordinate(latitude: location.latitude, longitude: location.longitude) }
+        else if let lat, let lon { result = GeoCoordinate(latitude: lat, longitude: lon) }
+        else { result = nil }
+        return result?.isValid == true ? result : nil
+    }
 }
 
 struct TransportBoard: Decodable {

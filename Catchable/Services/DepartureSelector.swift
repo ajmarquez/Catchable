@@ -2,6 +2,7 @@ import Foundation
 
 struct DepartureSelector {
     func catchable(_ departures: [Departure], for service: SavedService, buffer: Int, now: Date) -> [Departure] {
+        guard service.walkingState != .pending, service.walkingState != .unavailable else { return [] }
         let threshold = now.addingTimeInterval(Double(service.walkingMinutes + buffer) * 60)
         return Array(departures.filter {
             $0.serviceID == service.id && !$0.isCancelled && $0.date >= threshold

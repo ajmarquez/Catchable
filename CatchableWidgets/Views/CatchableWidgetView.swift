@@ -128,7 +128,7 @@ struct CatchableWidgetView: View {
                     Text("Then \(following) min").font(.system(size: 10)).foregroundStyle(.secondary)
                 }
             } else {
-                Text("No departures").font(.system(size: 12, weight: .medium))
+                Text(walkingStatus(service) ?? "No departures").font(.system(size: 12, weight: .medium))
             }
         }.frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -146,7 +146,7 @@ struct CatchableWidgetView: View {
         let values = Array(departures(service).prefix(small ? 1 : 3))
         return Group {
             if values.isEmpty {
-                Text("No catchable departures").font(.system(size: 10)).foregroundStyle(.secondary)
+                Text(walkingStatus(service) ?? "No catchable departures").font(.system(size: 10)).foregroundStyle(.secondary)
             } else {
                 HStack(spacing: 0) {
                     ForEach(Array(values.enumerated()), id: \.element.id) { index, departure in
@@ -178,6 +178,13 @@ struct CatchableWidgetView: View {
     private func departures(_ service: SavedService) -> [Departure] {
         DepartureSelector().catchable(entry.snapshot?.departures ?? [], for: service,
                                      buffer: entry.place.bufferMinutes, now: entry.date)
+    }
+    private func walkingStatus(_ service: SavedService) -> String? {
+        switch service.walkingState {
+        case .pending: return "Set address or walking route in Catchable"
+        case .unavailable: return "Walking route unavailable"
+        default: return nil
+        }
     }
     private func minutes(_ departure: Departure) -> Int {
         max(0, Int(ceil(departure.date.timeIntervalSince(entry.date) / 60)))
