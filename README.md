@@ -91,3 +91,7 @@ Addresses and route endpoints are sent to Apple Maps for address search and walk
 
 ## Merged regression baseline
 Watch support, VBB-first API fallback, and multiple locations with walking routes are merged into main. All 47 automated tests and the signed archive passed before merging. See [TESTING.md](TESTING.md) for coverage and remaining manual checks. These changes have not yet been uploaded to TestFlight.
+
+
+## Latest TestFlight upload
+Version 0.1.0 (3), including Watch, API fallback, locations and walking times, uploaded successfully on 2026-10-14. Apple confirmed package processing; final processing/group availability has not been independently verified. See Release/README.md.
