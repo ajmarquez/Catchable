@@ -41,3 +41,8 @@ Version **0.1.0 (3)** uploaded successfully on 2026-10-14 at 07:43 Europe/Berlin
 This build includes Watch support, VBB-first API fallback, multiple locations and MapKit walking times. All 47 regression tests passed before release preparation. The signed archive is `build/Catchable-0.1.0-build3.xcarchive`; all embedded components use build 3.
 
 App Store Connect browser sign-in is required to independently confirm processing completion and group availability. No App Store release was submitted.
+
+## Build 4 prepared; upload blocked
+Version **0.1.0 (4)** includes consistent white tab surfaces, simpler Stations section headings, service announcement sheets and native Apple translation presentation. All 51 tests passed, and the signed archive succeeded at `build/Catchable-0.1.0-build4.xcarchive`.
+
+Upload attempted on 2026-10-14 at 08:28 Europe/Berlin failed before delivery: Xcode reported missing Xcode-Token credentials and required App Store Connect access. Sign in again in Xcode Settings > Accounts, then retry export with the build 4 archive. Build 4 has not been uploaded.
