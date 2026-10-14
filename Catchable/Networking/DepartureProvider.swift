@@ -4,7 +4,7 @@ protocol DepartureProvider {
     func fetchDepartures(for services: [SavedService]) async throws -> DepartureSnapshot
 }
 
-/// Sample-only provider. Replace through dependency injection after verifying API access.
+/// Explicit demo data, including announcements for exercising the station info sheet.
 struct SampleDepartureProvider: DepartureProvider {
     func fetchDepartures(for services: [SavedService]) async throws -> DepartureSnapshot {
         try await Task.sleep(for: .milliseconds(250))
@@ -16,6 +16,15 @@ struct SampleDepartureProvider: DepartureProvider {
                           date: now.addingTimeInterval(Double(offset) * 60))
             }
         }
-        return DepartureSnapshot(departures: departures, fetchedAt: now, isSample: true)
+        let examples = [
+            "Beispielmeldung: Wegen Bauarbeiten kann es zu Verspätungen kommen. Bitte beachten Sie die Hinweise an der Haltestelle.",
+            "Sample announcement: The lift at this station is temporarily unavailable. Please use the alternative entrance."
+        ]
+        // Leave remaining stations without notices to demonstrate both card states.
+        let notices = zip(services, examples).map { service, text in
+            ServiceNotice(id: "sample-notice-\(service.id)", serviceID: service.id,
+                          text: text, kind: "warning")
+        }
+        return DepartureSnapshot(departures: departures, fetchedAt: now, isSample: true, notices: notices)
     }
 }

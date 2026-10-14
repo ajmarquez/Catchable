@@ -45,7 +45,7 @@ struct MyLocationsView: View {
                 if let error = viewModel.saveError { Section { Text(error).foregroundStyle(.red) } }
                 Section("Preview") {
                     Toggle("Use sample data", isOn: $sampleMode)
-                    Text("Shows example departures. Your saved locations and stations are kept separately.")
+                    Text("Shows example departures and announcements. Tap a station’s info button in Now to try announcements and translation. Your saved locations and stations are kept separately.")
                         .font(.caption).foregroundStyle(.secondary)
                 }
             }
