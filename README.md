@@ -95,3 +95,11 @@ Watch support, VBB-first API fallback, and multiple locations with walking route
 
 ## Latest TestFlight upload
 Version 0.1.0 (3), including Watch, API fallback, locations and walking times, uploaded successfully on 2026-10-14. Apple confirmed package processing; final processing/group availability has not been independently verified. See Release/README.md.
+
+
+## Service announcements and consistent surfaces
+Stations and My Locations now use white page backgrounds; the detached black Stations section-header block is replaced by plain typography while retaining station cards and swipe deletion.
+
+VBB departure requests enable `remarks`. Matching saved line/direction notices appear behind an accessible info button on Now's station header. Notices are deduplicated, routine operator/occupancy/amenity hints are omitted, and warnings from cancelled departures are retained. Optional malformed notice metadata does not discard the departure board. Original notice text remains visible and selectable. Translate uses Apple's native Translation presentation on iOS 17.4+, including source-language detection and target selection; older supported systems retain the original text. Language downloads and runtime translation require device verification.
+
+The provider's API notices do not include every physical station-display message. Transitous fallback currently provides departure times without mapped notices; an absent info button is not an all-clear assertion. Live VBB remarks were verified; the queried station returned routine hints at that time. Announcement behavior uses deterministic German warning fixtures in tests. All 51 tests pass and the signed archive succeeds.

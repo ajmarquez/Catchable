@@ -39,6 +39,7 @@ struct TransportDeparture: Decodable {
     let cancelled: Bool?
     let delay: Int?
     var realtime: Bool? = nil
+    var remarks: [TransportRemark]? = nil
 
     var date: Date? {
         guard let value = when ?? plannedWhen else { return nil }
@@ -56,5 +57,46 @@ struct TransportDeparture: Decodable {
         case "regional": return .regional
         default: return nil
         }
+    }
+}
+
+struct TransportRemark: Decodable {
+    var id: String? = nil
+    let type: String?
+    var code: String? = nil
+    var summary: String? = nil
+    var text: String? = nil
+
+    var noticeText: String? {
+        guard let type, ["warning", "status", "hint"].contains(type) else { return nil }
+        let routineCodes = ["OPERATOR", "FK", "BF", "CK", "PK", "FG"]
+        if type == "hint", let code, routineCodes.contains(code.uppercased()) || code.hasPrefix("text.occup.") { return nil }
+        let raw = text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let chosen = raw?.isEmpty == false ? raw : summary
+        guard var value = chosen else { return nil }
+        value = value.replacingOccurrences(of: "<[^>]+>", with: " ", options: .regularExpression)
+        for (entity, replacement) in [("&nbsp;", " "), ("&amp;", "&"), ("&lt;", "<"), ("&gt;", ">"), ("&quot;", "\""), ("&#39;", "'")] {
+            value = value.replacingOccurrences(of: entity, with: replacement)
+        }
+        value = value.split(whereSeparator: \.isWhitespace).joined(separator: " ")
+        return value.isEmpty ? nil : value
+    }
+}
+
+extension TransportRemark {
+    private enum CodingKeys: String, CodingKey { case id, type, code, summary, text }
+
+    init(from decoder: Decoder) throws {
+        // Optional notice metadata must not make an otherwise valid departure board fail.
+        guard let values = try? decoder.container(keyedBy: CodingKeys.self) else {
+            id = nil; type = nil; code = nil; summary = nil; text = nil
+            return
+        }
+        id = (try? values.decode(String.self, forKey: .id)) ??
+            (try? values.decode(Int.self, forKey: .id)).map { String($0) }
+        type = try? values.decode(String.self, forKey: .type)
+        code = try? values.decode(String.self, forKey: .code)
+        summary = try? values.decode(String.self, forKey: .summary)
+        text = try? values.decode(String.self, forKey: .text)
     }
 }

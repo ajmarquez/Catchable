@@ -55,4 +55,5 @@ struct DepartureSnapshot: Codable {
     var fetchedAt: Date
     var isSample: Bool
     var source: String? = nil
+    var notices: [ServiceNotice]? = nil
 }

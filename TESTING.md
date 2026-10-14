@@ -17,3 +17,7 @@ Tests use injected providers and isolated preferences; live service availability
 ## Run
 
 Open Catchable.xcodeproj and use Product > Test with an installed iPhone simulator. Regenerate the project with xcodegen generate after adding source files. Archive the Catchable scheme for a generic iOS device with automatic provisioning to verify all embedded targets.
+
+
+## Announcement update
+51 tests pass after adding four notice tests: German remarks parsing and metadata filtering; malformed optional remark tolerance; deduplication and saved-direction isolation including cancelled departures; station-card notice isolation and cache Codable round-trip. Native Translation language downloads and translated output require an iPhone check.

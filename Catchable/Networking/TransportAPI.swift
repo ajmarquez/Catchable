@@ -19,7 +19,7 @@ struct TransportAPI: TransitAPI {
         let url = try endpoint("stops/" + stopID + "/departures", query: [
             URLQueryItem(name: "duration", value: String(minutes)),
             URLQueryItem(name: "results", value: "300"),
-            URLQueryItem(name: "remarks", value: "false")
+            URLQueryItem(name: "remarks", value: "true")
         ])
         return try await client.get(url, as: TransportBoard.self)
     }

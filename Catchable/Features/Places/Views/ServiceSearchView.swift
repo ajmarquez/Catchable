@@ -47,7 +47,10 @@ struct ServiceSearchView: View {
                         }
                     }
                 }
-            }.navigationTitle("Add service")
+            }
+                .scrollContentBackground(.hidden)
+                .background(Color.white)
+                .navigationTitle("Add service")
                 .task(id: viewModel.query) { await viewModel.search() }
                 .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Done") { dismiss() } } }
         }

@@ -36,6 +36,7 @@ struct PlacesView: View {
                                     }
                                 }
                             }.padding(.vertical, 5)
+                            .listRowBackground(Color(white: 0.97))
                             .swipeActions {
                                 Button("Delete station", role: .destructive) {
                                     viewModel.deleteStation(stopID: group.key, from: location.id)
@@ -57,17 +58,21 @@ struct PlacesView: View {
                     } header: {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(location.label).font(.headline)
-                            if !location.address.isEmpty { Text(location.address).font(.caption) }
+                            if !location.address.isEmpty {
+                                Text(location.address).font(.caption).foregroundStyle(.secondary)
+                            }
                         }
-                        .textCase(nil).foregroundStyle(.white)
+                        .textCase(nil).foregroundStyle(.black)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(12).background(.black)
+                        .padding(.vertical, 4)
                     }
                 }
                 if viewModel.isCalculatingWalking { ProgressView("Calculating walking times…") }
                 if let error = viewModel.walkingError { Text(error).font(.caption).foregroundStyle(.red) }
                 if let error = viewModel.saveError { Text(error).font(.caption).foregroundStyle(.red) }
             }
+            .scrollContentBackground(.hidden)
+            .background(Color.white)
             .navigationTitle("Stations")
             .tint(TransitTheme.accent)
             .sheet(item: $addingTo) { location in

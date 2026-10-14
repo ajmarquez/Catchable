@@ -35,6 +35,7 @@ struct MyLocationsView: View {
                                 Button("Edit", systemImage: "pencil") { editingLocation = location }
                             }.buttonStyle(.borderless)
                         }.padding(.vertical, 5)
+                        .listRowBackground(Color(white: 0.97))
                         .swipeActions {
                             Button("Delete", role: .destructive) { deletingLocation = location }
                         }
@@ -48,6 +49,8 @@ struct MyLocationsView: View {
                         .font(.caption).foregroundStyle(.secondary)
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(Color.white)
             .navigationTitle("My Locations")
             .confirmationDialog("Delete \(deletingLocation?.label ?? "location") and its saved stations?", isPresented: Binding(
                 get: { deletingLocation != nil }, set: { if !$0 { deletingLocation = nil } }), titleVisibility: .visible) {

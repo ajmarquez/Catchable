@@ -31,4 +31,9 @@ import Observation
     func departures(for service: SavedService, place: Place, now: Date) -> [Departure] {
         selector.catchable(snapshot?.departures ?? [], for: service, buffer: place.bufferMinutes, now: now)
     }
+    func notices(for services: [SavedService]) -> [ServiceNotice] {
+        let ids = Set(services.map(\.id))
+        var seen = Set<String>()
+        return (snapshot?.notices ?? []).filter { ids.contains($0.serviceID) && seen.insert($0.text).inserted }
+    }
 }

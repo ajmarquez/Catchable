@@ -5,16 +5,22 @@ struct StationCard: View {
     let place: Place
     let now: Date
     let viewModel: NowViewModel
+    @State private var showingNotices = false
     var body: some View {
         VStack(spacing: 0) {
             ViewThatFits(in: .horizontal) {
                 HStack {
                     Text(services.first?.station ?? "").font(.system(size: 16, weight: .bold))
+                    noticeButton
                     Spacer(minLength: 8)
                     walkingLabel
                 }
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(services.first?.station ?? "").font(.headline)
+                    HStack {
+                        Text(services.first?.station ?? "").font(.headline)
+                        Spacer()
+                        noticeButton
+                    }
                     walkingLabel
                 }.frame(maxWidth: .infinity, alignment: .leading)
             }.padding(12).foregroundStyle(.white).background(.black)
@@ -45,6 +51,17 @@ struct StationCard: View {
             }
         }.background(.white).clipShape(RoundedRectangle(cornerRadius: 2))
             .overlay(RoundedRectangle(cornerRadius: 2).stroke(Color.gray.opacity(0.2), lineWidth: 1))
+            .sheet(isPresented: $showingNotices) {
+                StationNoticesView(station: services.first?.station ?? "Station", notices: viewModel.notices(for: services))
+            }
+    }
+    @ViewBuilder private var noticeButton: some View {
+        if !viewModel.notices(for: services).isEmpty {
+            Button { showingNotices = true } label: {
+                Image(systemName: "info.circle").font(.body).frame(minWidth: 44, minHeight: 44)
+            }.buttonStyle(.plain)
+                .accessibilityLabel("Announcements for \(services.first?.station ?? "station")")
+        }
     }
     private var walkingLabel: some View {
         Text(services.first?.walkingState == .pending ? "Walking time pending" :
